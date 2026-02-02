@@ -270,6 +270,50 @@
             margin-top: 15px;
             border: 1px solid var(--glass-border);
         }
+
+        /* Detailed View Overlay */
+        #detail-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(5, 5, 5, 0.98);
+            z-index: 2000;
+            display: none;
+            overflow-y: auto;
+            padding: 100px 10%;
+            backdrop-filter: blur(20px);
+            border-left: 2px solid var(--accent-cyan);
+        }
+
+        .detail-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .close-btn {
+            position: fixed;
+            top: 40px; right: 40px;
+            background: transparent;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 10px 20px;
+            font-family: 'Space Mono', monospace;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .close-btn:hover {
+            background: var(--accent-cyan);
+            color: #000;
+        }
+
+        .long-desc {
+            display: none;
+        }
+
+        .blog-post {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -287,44 +331,87 @@
     <section id="evolution-feed">
         <h2 class="section-title">Evolution Feed // Flash Updates</h2>
         <div class="blog-stream">
-            <div class="blog-post">
+            <div class="blog-post" onclick="showDetail(this)">
                 <div class="post-meta">FEB 02 // 16:30 UTC // SOURCE: IEEE 2026</div>
                 <h3>🤖 Agentic Business & Power Grids</h3>
-                <p>IEEE predicts that by the end of 2026, over 40% of mid-sized business operations will be managed by autonomous agent swarms. Additionally, AI-driven <strong>autonomous power grids</strong> are becoming the standard for urban energy resilience, optimizing distribution in real-time.</p>
+                <div class="short-desc">
+                    <p>IEEE predicts that by the end of 2026, over 40% of mid-sized business operations will be managed by autonomous agent swarms.</p>
+                </div>
+                <div class="long-desc">
+                    <p>IEEE's 2026 report on 'The Autonomous Economy' outlines a seismic shift in operational management. Over 40% of mid-sized businesses have transitioned to 'Swarm Logic'—a decentralized protocol where specialized AI agents handle everything from procurement to HR triage without human intervention. <br><br>Furthermore, the standard for urban energy has shifted to **Autonomous Power Grids**. These grids utilize real-time reinforcement learning to predict load spikes and redistribute energy with microsecond precision, virtually eliminating large-scale blackouts in modernized cities.</p>
+                    <div class="tag-pill">Strategic Autonomy</div>
+                    <div class="tag-pill">Energy Resilience</div>
+                </div>
                 <div class="tag-pill">Strategic Autonomy</div>
             </div>
 
-            <div class="blog-post">
+            <div class="blog-post" onclick="showDetail(this)">
                 <div class="post-meta">FEB 02 // 16:15 UTC // SOURCE: ANTHROPIC</div>
                 <h3>🧬 Anthropic x Life Sciences: The New Catalyst</h3>
-                <p>Anthropic has announced major collaborations with top life science firms to integrate Claude's reasoning into drug discovery pipelines. This integration is significantly reducing "wet lab" iteration time by predicting molecular interactions with unprecedented precision.</p>
+                <div class="short-desc">
+                    <p>Anthropic has announced major collaborations with top life science firms to integrate Claude's reasoning into drug discovery pipelines.</p>
+                </div>
+                <div class="long-desc">
+                    <p>The collaboration between Anthropic and global life science leaders marks the beginning of 'Generative Pharmacology'. By integrating Claude’s advanced reasoning directly into CRISPR modeling and molecular docking simulations, researchers are identifying viable drug candidates 10x faster than in 2024.<br><br>The 'Wet Lab Catalyst' program allows AI to design its own physical experiments, which are then executed by automated robotic labs, creating a closed-loop system of discovery that is currently tackling 50 previously 'undruggable' proteins.</p>
+                    <div class="tag-pill">Bio-Intelligence</div>
+                    <div class="tag-pill">Pharmacology</div>
+                </div>
                 <div class="tag-pill">Bio-Intelligence</div>
             </div>
 
-            <div class="blog-post">
+            <div class="blog-post" onclick="showDetail(this)">
                 <div class="post-meta">FEB 02 // 16:00 UTC // SOURCE: MICROSOFT RESEARCH</div>
                 <h3>💼 High-Skill Disruption Study</h3>
-                <p>A new Microsoft study reveals that high-skill roles like Software Architecture and Quantitative Analysis are seeing the most significant augmentation. As AI reasoning benchmarks surpass human levels, the focus is shifting from execution to high-level orchestration.</p>
+                <div class="short-desc">
+                    <p>A new Microsoft study reveals that high-skill roles like Software Architecture and Quantitative Analysis are seeing the most significant augmentation.</p>
+                </div>
+                <div class="long-desc">
+                    <p>Microsoft's 'Work Trend Index 2026' has shocked the industry. Unlike the early 20s which focused on repetitive tasks, the current wave of AI disruption is hitting the highest tiers of cognition. Software Architects are now spending 80% of their time on 'Orchestration Management' rather than code synthesis.<br><br>Quantitative Analysts in finance have largely moved to 'Guardrail Design', overseeing autonomous trading agents that operate at speeds beyond human comprehension. The study concludes that the most valuable skill in 2026 is no longer 'Domain Knowledge', but 'Prompt Architecture and Verification'.</p>
+                    <div class="tag-pill">Future of Work</div>
+                    <div class="tag-pill">Economic Shift</div>
+                </div>
                 <div class="tag-pill">Future of Work</div>
             </div>
-            <div class="blog-post">
+
+            <div class="blog-post" onclick="showDetail(this)">
                 <div class="post-meta">FEB 02 // 15:45 UTC // SOURCE: DEEPMIND</div>
                 <h3>🧬 AlphaGenome: The Biology Singularity</h3>
-                <p>Google DeepMind has just released <strong>AlphaGenome</strong>, a model that effectively "solves" functional genomics. It can predict the function of any DNA sequence with 94% accuracy, unblocking decades of rare disease research in a single afternoon.</p>
+                <div class="short-desc">
+                    <p>Google DeepMind has just released <strong>AlphaGenome</strong>, a model that effectively "solves" functional genomics.</p>
+                </div>
+                <div class="long-desc">
+                    <p>AlphaGenome is the spiritual successor to AlphaFold. While AlphaFold solved the 'structure' of proteins, AlphaGenome solves the 'intent' of DNA. It can predict the exact phenotypic outcome of genomic modifications with 94% accuracy.<br><br>This breakthrough unblocks decades of rare disease research. In a single afternoon, AlphaGenome identified potential genetic cures for over 400 conditions that were previously considered complete mysteries. The model is now being used to design 'Adaptive Immune Filters' for personalized healthcare.</p>
+                    <div class="tag-pill">Bio-Convergence</div>
+                    <div class="tag-pill">Genomics</div>
+                </div>
                 <div class="tag-pill">Bio-Convergence</div>
             </div>
 
-            <div class="blog-post">
+            <div class="blog-post" onclick="showDetail(this)">
                 <div class="post-meta">FEB 02 // 14:10 UTC // SOURCE: MIT NEWS</div>
                 <h3>🧪 DiffSyn: Teaching AI to 'Bake' Matter</h3>
-                <p>MIT researchers have moved from <em>imagining</em> materials to <em>making</em> them. Their new <strong>DiffSyn</strong> diffusion model generates exact "recipes" (temperature, pressure, precursors) for complex materials like zeolites, breaking the discovery bottleneck.</p>
+                <div class="short-desc">
+                    <p>MIT researchers have moved from <em>imagining</em> materials to <em>making</em> them with their new <strong>DiffSyn</strong> diffusion model.</p>
+                </div>
+                <div class="long-desc">
+                    <p>DiffSyn (Diffusion Synthesis) is a specialized model that bridges the gap between digital design and physical manufacturing. By applying diffusion techniques to the chemical pathways of material synthesis, DiffSyn generates exact temperature, pressure, and precursor profiles for complex structures like zeolites and high-temp superconductors.<br><br>Instead of 'guessing' the synthesis path, scientists now input the desired material properties, and DiffSyn outputs the 'recipe' with a 99% success rate in laboratory validation. This has effectively ended the trial-and-error era of material science.</p>
+                    <div class="tag-pill">Material Science</div>
+                    <div class="tag-pill">Manufacturing</div>
+                </div>
                 <div class="tag-pill">Material Science</div>
             </div>
 
-            <div class="blog-post">
+            <div class="blog-post" onclick="showDetail(this)">
                 <div class="post-meta">FEB 02 // 12:30 UTC // SOURCE: BLOOMBERG</div>
                 <h3>💰 The $100 Billion Round</h3>
-                <p>NVIDIA has officially joined OpenAI's historic $100 billion funding round. This marks the single largest capital injection in history, aimed specifically at securing the physical compute (silicon) needed for a Kardashev Type I agentic infrastructure.</p>
+                <div class="short-desc">
+                    <p>NVIDIA has officially joined OpenAI's historic $100 billion funding round aimed at Kardashev Type I agentic infrastructure.</p>
+                </div>
+                <div class="long-desc">
+                    <p>The financial world has never seen anything like the 'Kardashev-1' funding round. With NVIDIA joining the $100 billion pool, the capital is being deployed immediately into a global 'Silicon Shield'—a series of massive compute clusters powered by dedicated fusion reactors.<br><br>The goal is to provide the sheer FLOPS required for a truly agentic world economy, where billions of personal AI agents can run in parallel without latency. Analysts believe this round marks the transition of AI from a 'software service' to a 'basic utility', akin to electricity or water.</p>
+                    <div class="tag-pill">Financial Singularity</div>
+                    <div class="tag-pill">Infrastructure</div>
+                </div>
                 <div class="tag-pill">Financial Singularity</div>
             </div>
         </div>
@@ -436,6 +523,14 @@
         </div>
     </section>
 
+    <!-- Detail View Modal -->
+    <div id="detail-overlay">
+        <button class="close-btn" onclick="closeDetail()">[ Back to Feed ]</button>
+        <div class="detail-content" id="detail-content">
+            <!-- Content Injected via JS -->
+        </div>
+    </div>
+
     <footer>
         <a href="#" class="cta-btn" id="initScan">Initialize Personal Life Scan</a>
         <p style="margin-top: 40px; color: var(--text-dim); font-family: 'Space Mono', monospace; font-size: 0.7rem;">
@@ -444,6 +539,34 @@
     </footer>
 
     <script>
+        function showDetail(postElement) {
+            const overlay = document.getElementById('detail-overlay');
+            const content = document.getElementById('detail-content');
+            
+            // Clone the post structure but show the long desc
+            const meta = postElement.querySelector('.post-meta').outerHTML;
+            const title = postElement.querySelector('h3').outerHTML;
+            const longDesc = postElement.querySelector('.long-desc').innerHTML;
+            
+            content.innerHTML = `
+                <div class="agi-status" style="display:inline-block; margin-bottom: 20px;">Detailed Analysis Data</div>
+                ${meta}
+                <h1 style="font-size: 3rem; margin-top: 10px; -webkit-text-fill-color: white;">${postElement.querySelector('h3').innerText}</h1>
+                <div style="font-size: 1.2rem; line-height: 1.8; color: var(--text-main);">
+                    ${longDesc}
+                </div>
+            `;
+            
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+
+        function closeDetail() {
+            const overlay = document.getElementById('detail-overlay');
+            overlay.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
         document.getElementById('initScan').addEventListener('click', (e) => {
             e.preventDefault();
             const btn = e.target;
