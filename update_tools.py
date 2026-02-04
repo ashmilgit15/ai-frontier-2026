@@ -504,6 +504,46 @@ tools_data = [
         "desc": "Sourcegraph's AI assistant that uses a global code graph to provide context-aware completions and autonomous refactoring.",
         "limit": "Free tier available",
         "link": "https://sourcegraph.com/cody"
+    },
+    {
+        "name": "Project Genie 3",
+        "cat": "World Model",
+        "cat_class": "cat-special",
+        "desc": "Google DeepMind's General-Purpose World Model. Can generate fully interactive, playable 3D environments from a single text prompt.",
+        "limit": "AI Ultra Subscribers only",
+        "link": "https://deepmind.google/genie"
+    },
+    {
+        "name": "Optimus Gen 3 SDK",
+        "cat": "Robotics",
+        "cat_class": "cat-stack",
+        "desc": "The official development kit for Tesla's Optimus humanoid. Allows for training custom end-to-end neural networks for factory automation.",
+        "limit": "Enterprise / Partnership only",
+        "link": "https://tesla.com/optimus"
+    },
+    {
+        "name": "Figure 03 API",
+        "cat": "Humanoid",
+        "cat_class": "cat-special",
+        "desc": "Autonomous agent API for Figure humanoids. Features real-time speech-to-action mapping and high-dexterity manipulation logic.",
+        "limit": "Early Access / Developers",
+        "link": "https://figure.ai"
+    },
+    {
+        "name": "Grok Imagine",
+        "cat": "Visuals",
+        "cat_class": "cat-creative",
+        "desc": "xAI's high-fidelity visual engine. Capable of generating 15-second cinematic clips with deep style control and prompt adherence.",
+        "limit": "X Premium+ required",
+        "link": "https://x.ai/grok"
+    },
+    {
+        "name": "Poolside",
+        "cat": "Contextual Coding",
+        "cat_class": "cat-ide",
+        "desc": "A 'Second-Wave' coding agent designed to reason across massive, multi-million line legacy codebases with perfect architectural recall.",
+        "limit": "Enterprise Beta",
+        "link": "https://poolside.ai"
     }
 ]
 

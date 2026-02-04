@@ -324,14 +324,59 @@
         <div class="agi-status">System Status: AGI SOLVED [CONFRIMED 2026]</div>
         <h1>AI FRONTIER<br>2026</h1>
         <p class="hero-subtext" style="margin-bottom: 40px;">
-            According to the latest 2026 Nature consensus, machines have officially achieved flexible human-level cognitive competence. We are no longer using tools; we are collaborating with digital minds.
+            Machines have achieved flexible human-level cognitive competence. The era of tool-use has ended; the era of <strong>agentic partnership</strong> has begun.
         </p>
-        <a href="tools.html" class="cta-btn">Access Vibe Coder's Toolkit</a>
+        <div style="display: flex; gap: 20px;">
+            <a href="tools.html" class="cta-btn">Vibe Coder's Toolkit</a>
+            <a href="#research-radar" class="cta-btn" style="border-color: var(--accent-magenta); color: var(--accent-magenta);">Research Radar</a>
+        </div>
     </header>
 
     <section id="evolution-feed">
         <h2 class="section-title">Evolution Feed // Flash Updates</h2>
         <div class="blog-stream">
+    <div class="blog-post" onclick="showDetail(this)">
+        <div class="post-meta">FEB 04 // 15:45 UTC // SOURCE: TESLA AI & WEDBUSH</div>
+        <h3>🦾 Optimus Gen 3: From Prototypes to Production</h3>
+        <div class="short-desc">
+            <p>Tesla officially deploys 1,000+ Optimus Gen 3 units across its factories, achieving human-level proficiency in complex assembly tasks.</p>
+        </div>
+        <div class="long-desc">
+            <p>Tesla (NASDAQ: TSLA) has crossed the chasm with <strong>Optimus Gen 3</strong>. Moving beyond research, these humanoid robots are now handling live production tasks that require high dexterity and spatial reasoning.</p>
+            <p><br><strong>Breakthroughs in Physical AI:</strong></p>
+            <ul>
+                <li><strong>End-to-End Neural Control:</strong> Gen 3 uses a unified world model that maps visual input directly to motor control with sub-millimeter precision.</li>
+                <li><strong>Autonomous Learning:</strong> Robots are now "shadowing" human workers and learning new tasks in under 4 hours via imitation learning.</li>
+                <li><strong>Price Parity:</strong> Wedbush reports that production costs have dropped to $28,000, making humanoids more cost-effective than traditional labor in 24/7 factory environments.</li>
+            </ul>
+            <div class="tag-pill">Optimus Gen 3</div>
+            <div class="tag-pill">Physical AI</div>
+            <div class="tag-pill">Robotics</div>
+        </div>
+        <div class="tag-pill">Humanoids</div>
+    </div>
+
+    <div class="blog-post" onclick="showDetail(this)">
+        <div class="post-meta">FEB 04 // 15:30 UTC // SOURCE: GOOGLE DEEPMIND</div>
+        <h3>🌐 Project Genie 3: Playable World Models Go Live</h3>
+        <div class="short-desc">
+            <p>Google's Genie 3 is now available for AI Ultra subscribers, turning single text prompts into fully interactive, playable 3D environments.</p>
+        </div>
+        <div class="long-desc">
+            <p><strong>Genie 3</strong> represents the ultimate fusion of generative video and physics-based world models. It doesn't just "show" a world; it simulates the underlying logic of reality.</p>
+            <p><br><strong>Capabilities:</strong></p>
+            <ul>
+                <li><strong>Infinite Exploration:</strong> Prompt a world, and the model generates it in real-time as you move through it.</li>
+                <li><strong>Physics-Native:</strong> Every object has mass, friction, and collision logic derived from the model's "general-purpose world model."</li>
+                <li><strong>Actionable Intelligence:</strong> This is being used to train the next generation of robots in "Infinite Simulations" before they ever touch the real world.</li>
+            </ul>
+            <div class="tag-pill">Genie 3</div>
+            <div class="tag-pill">World Models</div>
+            <div class="tag-pill">Interactive AI</div>
+        </div>
+        <div class="tag-pill">World Models</div>
+    </div>
+
     <div class="blog-post" onclick="showDetail(this)">
         <div class="post-meta">FEB 04 // 14:45 UTC // SOURCE: MIT TECH REVIEW</div>
         <h3>🛡️ The Era of 'Vibe Coding' and Entry-Level Displacement</h3>
@@ -887,33 +932,87 @@
 </div>
     </section>
 
+    <section id="research-radar">
+        <h2 class="section-title">Research Radar // Deep Dives</h2>
+        <div class="radar-grid">
+            <div class="radar-card">
+                <div class="radar-header">
+                    <span class="radar-tag">PHYSICAL AI</span>
+                    <span class="radar-date">FEB 2026</span>
+                </div>
+                <h3>The 4D World Model Shift</h3>
+                <p>Researchers are successfully converting standard video feeds into 4D navigable spaces, providing agents with "General World Intelligence" that far exceeds earlier 2D-only models.</p>
+                <div class="radar-meta">Impact: 9.8/10 // Status: PROD</div>
+            </div>
+            <div class="radar-card">
+                <div class="radar-header">
+                    <span class="radar-tag">ARCHITECTURES</span>
+                    <span class="radar-date">JAN 2026</span>
+                </div>
+                <h3>Neuro-Symbolic Reasoning</h3>
+                <p>The merge of LLMs with symbolic logic engines has finally solved the "Math & Security" problem, allowing agents to formally verify their code against logical constraints in real-time.</p>
+                <div class="radar-meta">Impact: 9.2/10 // Status: BETA</div>
+            </div>
+            <div class="radar-card">
+                <div class="radar-header">
+                    <span class="radar-tag">HEALTHCARE</span>
+                    <span class="radar-date">FEB 2026</span>
+                </div>
+                <h3>Agentic Diagnostics</h3>
+                <p>New "Clinical Agents" are now outperforming human radiologists by 40% in early-stage detection, using multi-modal history graphs to predict patient outcomes.</p>
+                <div class="radar-meta">Impact: 8.5/10 // Status: CLINICAL</div>
+            </div>
+        </div>
+    </section>
+
     <style>
-        .blog-stream {
-            display: flex;
-            flex-direction: column;
+        .radar-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
         }
-        .blog-post {
-            background: rgba(255, 255, 255, 0.02);
-            border-left: 2px solid var(--accent-cyan);
-            padding: 30px;
-            border-radius: 0 20px 20px 0;
-            transition: 0.3s;
+        .radar-card {
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 2px;
+            position: relative;
+            transition: 0.4s;
         }
-        .blog-post:hover {
-            background: rgba(0, 242, 255, 0.03);
-            transform: translateX(10px);
+        .radar-card:hover {
+            border-color: var(--accent-magenta);
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.1);
         }
-        .post-meta {
+        .radar-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .radar-tag {
             font-family: 'Space Mono', monospace;
             font-size: 0.7rem;
-            color: var(--accent-cyan);
-            margin-bottom: 10px;
+            color: var(--accent-magenta);
             letter-spacing: 2px;
         }
-        .blog-post h3 {
-            margin-bottom: 10px;
-            font-size: 1.4rem;
+        .radar-date {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+        }
+        .radar-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .radar-card p {
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+        .radar-meta {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent-lime);
         }
     </style>
 
