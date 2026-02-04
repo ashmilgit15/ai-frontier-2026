@@ -13,7 +13,7 @@ tools_data = [
     {"name": "Gemma 2", "cat": "Open Source", "cat_class": "cat-stack", "desc": "Google's lightweight open-model family built for efficiency and research.", "limit": "Free / Open Weights", "link": "https://ai.google.dev/gemma"},
     {"name": "Falcon 2", "cat": "Open Source", "cat_class": "cat-stack", "desc": "TII's high-performance open-source model suite from the UAE.", "limit": "Free / Open Weights", "link": "https://falconllm.tii.ae"},
 
-    # --- DEVELOPMENT & CODING (11-30) ---
+    # --- DEVELOPMENT & CODING (11-35) ---
     {"name": "Cursor v4", "cat": "Coding IDE", "cat_class": "cat-ide", "desc": "The ultimate AI IDE. Omni-Edit predicts entire architectural refactors.", "limit": "Free tier / Pro", "link": "https://cursor.com"},
     {"name": "Windsurf", "cat": "Autonomous Dev", "cat_class": "cat-ide", "desc": "Integrates Devin's autonomous planning directly into the editor for self-healing code.", "limit": "Unlimited Flow-mode", "link": "https://codeium.com/windsurf"},
     {"name": "Trae", "cat": "AI IDE", "cat_class": "cat-ide", "desc": "ByteDance's AI IDE with state-sync and unlimited reasoning for developers.", "limit": "Unlimited (Limited Time)", "link": "https://trae.ai"},
@@ -23,7 +23,7 @@ tools_data = [
     {"name": "Codeium", "cat": "Coding Assistant", "cat_class": "cat-ide", "desc": "Free-for-individuals alternative to Copilot with strong context awareness.", "limit": "Free for Individuals", "link": "https://codeium.com"},
     {"name": "Tabnine", "cat": "Coding Assistant", "cat_class": "cat-ide", "desc": "Privacy-first coding assistant that can run entirely on-prem or local.", "limit": "Free / Pro", "link": "https://tabnine.com"},
     {"name": "Continue.dev", "cat": "Dev Bridge", "cat_class": "cat-stack", "desc": "Open-source library to plug any model into your IDE's agentic loop.", "limit": "100% Free / OSS", "link": "https://continue.dev"},
-    {"name": "Melty", "cat": "Open Source IDE", "cat_class": "cat-ide", "desc": "An IDE that learns your style and Frustration levels to provide better help.", "limit": "Free / OSS", "link": "https://melty.builtwithdark.com"},
+    {"name": "Melty", "cat": "Open Source IDE", "cat_class": "cat-ide", "desc": "An IDE that learns your style and frustration levels to provide better help.", "limit": "Free / OSS", "link": "https://melty.builtwithdark.com"},
     {"name": "Void Editor", "cat": "Privacy IDE", "cat_class": "cat-ide", "desc": "VS Code fork built for Local-LLM integration without data telemetry.", "limit": "Free / OSS", "link": "https://voideditor.com"},
     {"name": "Plandex", "cat": "Task Agent", "cat_class": "cat-ide", "desc": "CLI tool for long-running, multi-file tasks with automated planning.", "limit": "Free / Pro", "link": "https://plandex.ai"},
     {"name": "Mintlify", "cat": "Documentation", "cat_class": "cat-ui", "desc": "AI-powered platform to build beautiful, automated technical documentation.", "limit": "Free tier / Pro", "link": "https://mintlify.com"},
@@ -34,8 +34,13 @@ tools_data = [
     {"name": "Replit Agent", "cat": "Cloud Agent", "cat_class": "cat-stack", "desc": "Build and deploy full-stack apps entirely through a natural language chat.", "limit": "Core Subscription", "link": "https://replit.com/ai"},
     {"name": "Fig (Postman)", "cat": "CLI Tools", "cat_class": "cat-ide", "desc": "Adds visual autocomplete and AI command generation to your terminal.", "limit": "Free for Individuals", "link": "https://fig.io"},
     {"name": "Blackbox AI", "cat": "Coding Search", "cat_class": "cat-ide", "desc": "In-editor AI for searching code snippets and generating functions instantly.", "limit": "Free tier available", "link": "https://useblackbox.io"},
+    {"name": "Tabby", "cat": "Self-hosted Coding", "cat_class": "cat-ide", "desc": "Open-source, self-hosted AI coding assistant, alternative to GitHub Copilot.", "limit": "Free / OSS", "link": "https://tabby.com"},
+    {"name": "Refact.ai", "cat": "Coding Assistant", "cat_class": "cat-ide", "desc": "Open-source AI coding assistant with fine-tuning and codebase awareness.", "limit": "Free tier available", "link": "https://refact.ai"},
+    {"name": "Sourcegraph", "cat": "Code Intelligence", "cat_class": "cat-ide", "desc": "AI-powered code search and intelligence for large-scale codebases.", "limit": "Enterprise only", "link": "https://sourcegraph.com"},
+    {"name": "Kite", "cat": "Legacy AI Coding", "cat_class": "cat-ide", "desc": "AI-powered autocomplete for Python and other languages (Legacy).", "limit": "Archived", "link": "https://kite.com"},
+    {"name": "Sourcery", "cat": "Code Refactoring", "cat_class": "cat-ide", "desc": "AI tool that helps you refactor and improve code quality in real-time.", "limit": "Free for OSS", "link": "https://sourcery.ai"},
 
-    # --- IMAGE GENERATION (31-50) ---
+    # --- IMAGE GENERATION (36-60) ---
     {"name": "Midjourney v8", "cat": "Image Gen", "cat_class": "cat-creative", "desc": "The 2026 standard for high-fidelity AI art and stylistic consistency.", "limit": "Subscription based", "link": "https://midjourney.com"},
     {"name": "DALL-E 3", "cat": "Image Gen", "cat_class": "cat-creative", "desc": "OpenAI's image engine. Known for perfect prompt adherence and easy ChatGPT use.", "limit": "Included in Plus", "link": "https://openai.com/dall-e-3"},
     {"name": "Flux.1", "cat": "Image Gen", "cat_class": "cat-creative", "desc": "Open-weights image generator by Black Forest Labs with realistic human features.", "limit": "Free (Schnell) / API", "link": "https://blackforestlabs.ai"},
@@ -56,8 +61,13 @@ tools_data = [
     {"name": "Craiyon", "cat": "Lightweight Image", "cat_class": "cat-creative", "desc": "Simple, free text-to-image generator formerly known as DALL-E mini.", "limit": "Free / Ad-supported", "link": "https://craiyon.com"},
     {"name": "VanceAI", "cat": "Photo Enhancement", "cat_class": "cat-creative", "desc": "AI tools for sharpening, denoising, and restoring old photographs.", "limit": "Credit-based", "link": "https://vanceai.com"},
     {"name": "Looka", "cat": "Logo Design", "cat_class": "cat-creative", "desc": "AI logo maker and brand builder for entrepreneurs and small businesses.", "limit": "Pay-per-design", "link": "https://looka.com"},
+    {"name": "Remove.bg", "cat": "Background Removal", "cat_class": "cat-creative", "desc": "AI tool for removing backgrounds from photos in 5 seconds.", "limit": "Free tier available", "link": "https://remove.bg"},
+    {"name": "Fotor", "cat": "Photo Editor", "cat_class": "cat-creative", "desc": "Online photo editor with AI tools for enhancement and generation.", "limit": "Free / Pro", "link": "https://fotor.com"},
+    {"name": "Pixlr AI", "cat": "Image Editor", "cat_class": "cat-creative", "desc": "Cloud-based photo editor with generative AI features and filters.", "limit": "Free tier available", "link": "https://pixlr.com"},
+    {"name": "StarryAI", "cat": "AI Art", "cat_class": "cat-creative", "desc": "Mobile-first AI art generator available on iOS and Android.", "limit": "Daily Free Credits", "link": "https://starryai.com"},
+    {"name": "Jasper Art", "cat": "Image Gen", "cat_class": "cat-creative", "desc": "AI image generator by Jasper, optimized for marketing assets.", "limit": "Included in Jasper Sub", "link": "https://jasper.ai/art"},
 
-    # --- VIDEO & MOTION (51-70) ---
+    # --- VIDEO & MOTION (61-80) ---
     {"name": "Sora v2", "cat": "Video Gen", "cat_class": "cat-creative", "desc": "OpenAI's cinematic engine. Generates 2-min clips with perfect temporal physics.", "limit": "Subscription only", "link": "https://openai.com/sora"},
     {"name": "Runway Gen-3", "cat": "Video Gen", "cat_class": "cat-creative", "desc": "High-end video-to-video and text-to-video tool for professional VFX.", "limit": "Subscription based", "link": "https://runwayml.com"},
     {"name": "Luma Dream Machine", "cat": "Video Gen", "cat_class": "cat-creative", "desc": "Rapid video generation from text or images with high realism.", "limit": "Free 30 Gens / Mo", "link": "https://lumalabs.ai"},
@@ -76,10 +86,10 @@ tools_data = [
     {"name": "Colossyan", "cat": "Video Avatars", "cat_class": "cat-creative", "desc": "AI video creator for training with high-quality digital presenters.", "limit": "Free trial available", "link": "https://colossyan.com"},
     {"name": "Elai.io", "cat": "AI Video", "cat_class": "cat-creative", "desc": "Generate learning and development videos from text with AI avatars.", "limit": "Free trial available", "link": "https://elai.io"},
     {"name": "DeepBrain AI", "cat": "AI Avatars", "cat_class": "cat-creative", "desc": "Real-time AI video generators featuring highly realistic human avatars.", "limit": "Free trial available", "link": "https://deepbrain.io"},
-    {"name": "Wondershare Virbo", "cat": "Video Creator", "cat_class": "cat-creative", "desc": "AI avatar video creator for marketing and social media.", "limit": "Free tier available", "link": "https://virbo.wondershare.com"},
+    {"name": "Wondershare Virbo", "cat": "Video Creator", "cat_class": "cat-creative", "desc": "AI avatar video creator for marketing and social media.", "limit": "Free tier available", "link": "https://virbo.windows.com"},
     {"name": "D-ID", "cat": "Animation AI", "cat_class": "cat-creative", "desc": "Animate still photos and create talking avatars with AI technology.", "limit": "Free trial available", "link": "https://d-id.com"},
 
-    # --- AUDIO & MUSIC (71-90) ---
+    # --- AUDIO & MUSIC (81-100) ---
     {"name": "Suno v5", "cat": "Music Gen", "cat_class": "cat-creative", "desc": "Full song generation including lyrics, vocals, and arrangements.", "limit": "50 Credits / Day", "link": "https://suno.com"},
     {"name": "Udio", "cat": "Music Gen", "cat_class": "cat-creative", "desc": "High-fidelity music creation with studio-grade arrangements and vocals.", "limit": "Free / Subscription", "link": "https://udio.com"},
     {"name": "ElevenLabs", "cat": "Speech Gen", "cat_class": "cat-creative", "desc": "World leader in realistic text-to-speech and voice cloning technology.", "limit": "Free 10k Chars / Mo", "link": "https://elevenlabs.io"},
@@ -101,7 +111,7 @@ tools_data = [
     {"name": "Landr AI", "cat": "Music Mastering", "cat_class": "cat-data", "desc": "AI-powered music mastering, distribution, and plugins for musicians.", "limit": "Free to try", "link": "https://landr.com"},
     {"name": "Adobe Enhance", "cat": "Audio Cleaning", "cat_class": "cat-data", "desc": "Web tool that makes poor quality recordings sound like professional studio audio.", "limit": "Free Access", "link": "https://podcast.adobe.com/enhance"},
 
-    # --- SEARCH & RESEARCH (91-110) ---
+    # --- SEARCH & RESEARCH (101-120) ---
     {"name": "Perplexity Pro", "cat": "AI Search", "cat_class": "cat-research", "desc": "AI-native search engine providing direct answers with full citations.", "limit": "Free / Pro $20/mo", "link": "https://perplexity.ai"},
     {"name": "Genspark", "cat": "Agentic Search", "cat_class": "cat-research", "desc": "Search engine that autonomously builds web pages for your query.", "limit": "Free tier available", "link": "https://genspark.ai"},
     {"name": "Phind", "cat": "Dev Search", "cat_class": "cat-research", "desc": "Search engine optimized for developers with code-first answers.", "limit": "Free tier / Pro", "link": "https://phind.com"},
@@ -144,7 +154,7 @@ def generate_card(tool):
 
 cards_html = "\n".join([generate_card(t) for t in tools_data])
 
-html_template = f"""<!DOCTYPE html>
+html_template = """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -154,7 +164,7 @@ html_template = f"""<!DOCTYPE html>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;600;800&family=Space+Mono&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     <style>
-        :root {{
+        :root {
             --bg: #050505;
             --card-bg: rgba(255, 255, 255, 0.03);
             --accent-cyan: #00f2ff;
@@ -163,16 +173,16 @@ html_template = f"""<!DOCTYPE html>
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
             --glass-border: rgba(255, 255, 255, 0.1);
-        }}
+        }
 
-        * {{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             cursor: crosshair;
-        }}
+        }
 
-        body {{
+        body {
             background-color: var(--bg);
             color: var(--text-main);
             font-family: 'Outfit', sans-serif;
@@ -180,9 +190,9 @@ html_template = f"""<!DOCTYPE html>
             background-image: 
                 radial-gradient(circle at 20% 30%, rgba(0, 242, 255, 0.05) 0%, transparent 50%),
                 radial-gradient(circle at 80% 70%, rgba(255, 0, 255, 0.05) 0%, transparent 50%);
-        }}
+        }
 
-        .grid-overlay {{
+        .grid-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background-image: 
@@ -192,14 +202,14 @@ html_template = f"""<!DOCTYPE html>
             z-index: -1;
             transform: perspective(500px) rotateX(60deg) translateY(-100px);
             animation: gridMove 20s linear infinite;
-        }}
+        }
 
-        @keyframes gridMove {{
-            0% {{ background-position: 0 0; }}
-            100% {{ background-position: 0 1000px; }}
-        }}
+        @keyframes gridMove {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 1000px; }
+        }
 
-        header {{
+        header {
             padding: 40px 10%;
             border-bottom: 1px solid var(--glass-border);
             display: flex;
@@ -210,19 +220,19 @@ html_template = f"""<!DOCTYPE html>
             position: sticky;
             top: 0;
             z-index: 100;
-        }}
+        }
 
-        .logo {{
+        .logo {
             font-family: 'Syncopate', sans-serif;
             font-weight: 700;
             color: #fff;
             text-decoration: none;
             font-size: 1.2rem;
-        }}
+        }
 
-        .logo span {{ color: var(--accent-cyan); }}
+        .logo span { color: var(--accent-cyan); }
 
-        .back-link {{
+        .back-link {
             font-family: 'Space Mono', monospace;
             color: var(--text-dim);
             text-decoration: none;
@@ -231,42 +241,42 @@ html_template = f"""<!DOCTYPE html>
             padding: 8px 16px;
             border-radius: 4px;
             transition: 0.3s;
-        }}
+        }
 
-        .back-link:hover {{
+        .back-link:hover {
             border-color: var(--accent-cyan);
             color: var(--accent-cyan);
-        }}
+        }
 
-        .container {{
+        .container {
             padding: 60px 10%;
-        }}
+        }
 
-        .hero-section {{
+        .hero-section {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
             margin-bottom: 60px;
             flex-wrap: wrap;
             gap: 40px;
-        }}
+        }
 
-        .page-title {{
+        .page-title {
             font-family: 'Syncopate', sans-serif;
             font-size: clamp(2rem, 5vw, 4rem);
             text-transform: uppercase;
             background: linear-gradient(to right, #fff, var(--accent-lime));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }}
+        }
 
-        .search-container {{
+        .search-container {
             position: relative;
             width: 100%;
             max-width: 450px;
-        }}
+        }
 
-        #toolSearch {{
+        #toolSearch {
             width: 100%;
             background: rgba(255,255,255,0.05);
             border: 1px solid var(--glass-border);
@@ -277,29 +287,29 @@ html_template = f"""<!DOCTYPE html>
             outline: none;
             transition: 0.3s;
             font-size: 1rem;
-        }}
+        }
 
-        #toolSearch:focus {{
+        #toolSearch:focus {
             border-color: var(--accent-cyan);
             background: rgba(255,255,255,0.08);
             box-shadow: 0 0 30px rgba(0, 242, 255, 0.15);
-        }}
+        }
 
-        .page-subtitle {{
+        .page-subtitle {
             color: var(--text-dim);
             max-width: 600px;
             font-size: 1.1rem;
             line-height: 1.6;
             margin-top: 20px;
-        }}
+        }
 
-        .tools-grid {{
+        .tools-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 25px;
-        }}
+        }
 
-        .tool-card {{
+        .tool-card {
             background: var(--card-bg);
             border: 1px solid var(--glass-border);
             border-radius: 16px;
@@ -309,29 +319,29 @@ html_template = f"""<!DOCTYPE html>
             overflow: hidden;
             display: flex;
             flex-direction: column;
-        }}
+        }
 
-        .tool-card:hover {{
+        .tool-card:hover {
             transform: translateY(-5px);
             border-color: var(--accent-lime);
             box-shadow: 0 10px 30px rgba(204, 255, 0, 0.1);
-        }}
+        }
 
-        .tool-header {{
+        .tool-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             margin-bottom: 20px;
-        }}
+        }
 
-        .tool-name {{
+        .tool-name {
             font-family: 'Space Mono', monospace;
             font-size: 1.4rem;
             font-weight: 700;
             color: #fff;
-        }}
+        }
 
-        .tool-cat {{
+        .tool-cat {
             font-size: 0.7rem;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -339,38 +349,38 @@ html_template = f"""<!DOCTYPE html>
             border-radius: 4px;
             background: rgba(255,255,255,0.05);
             color: var(--text-dim);
-        }}
+        }
 
-        .tool-desc {{
+        .tool-desc {
             color: var(--text-dim);
             font-size: 0.9rem;
             line-height: 1.6;
             margin-bottom: 25px;
             flex-grow: 1;
-        }}
+        }
 
-        .limit-box {{
+        .limit-box {
             background: rgba(0, 0, 0, 0.3);
             border-left: 2px solid var(--accent-lime);
             padding: 12px;
             margin-bottom: 25px;
-        }}
+        }
 
-        .limit-label {{
+        .limit-label {
             font-size: 0.7rem;
             color: var(--accent-lime);
             text-transform: uppercase;
             margin-bottom: 4px;
             display: block;
             font-family: 'Space Mono', monospace;
-        }}
+        }
 
-        .limit-val {{
+        .limit-val {
             font-size: 0.9rem;
             color: #fff;
-        }}
+        }
 
-        .tool-link {{
+        .tool-link {
             text-decoration: none;
             text-align: center;
             padding: 12px;
@@ -381,27 +391,27 @@ html_template = f"""<!DOCTYPE html>
             font-size: 0.8rem;
             border-radius: 4px;
             transition: 0.3s;
-        }}
+        }
 
-        .tool-link:hover {{
+        .tool-link:hover {
             background: var(--accent-lime);
             color: #000;
             border-color: var(--accent-lime);
-        }}
+        }
 
         /* Category colors */
-        .cat-ide {{ color: var(--accent-cyan); border: 1px solid rgba(0, 242, 255, 0.3); }}
-        .cat-ui {{ color: var(--accent-magenta); border: 1px solid rgba(255, 0, 255, 0.3); }}
-        .cat-stack {{ color: var(--accent-lime); border: 1px solid rgba(204, 255, 0, 0.3); }}
-        .cat-research {{ color: #a5f3fc; border: 1px solid rgba(165, 243, 252, 0.3); }}
-        .cat-writing {{ color: #e9d5ff; border: 1px solid rgba(233, 213, 255, 0.3); }}
-        .cat-creative {{ color: #f472b6; border: 1px solid rgba(244, 114, 182, 0.3); }}
-        .cat-data {{ color: #6ee7b7; border: 1px solid rgba(110, 231, 183, 0.3); }}
-        .cat-devops {{ color: #fdba74; border: 1px solid rgba(253, 186, 116, 0.3); }}
-        .cat-sec {{ color: #f87171; border: 1px solid rgba(248, 113, 113, 0.3); }}
-        .cat-special {{ color: #fde047; border: 1px solid rgba(253, 224, 71, 0.3); }}
+        .cat-ide { color: var(--accent-cyan); border: 1px solid rgba(0, 242, 255, 0.3); }
+        .cat-ui { color: var(--accent-magenta); border: 1px solid rgba(255, 0, 255, 0.3); }
+        .cat-stack { color: var(--accent-lime); border: 1px solid rgba(204, 255, 0, 0.3); }
+        .cat-research { color: #a5f3fc; border: 1px solid rgba(165, 243, 252, 0.3); }
+        .cat-writing { color: #e9d5ff; border: 1px solid rgba(233, 213, 255, 0.3); }
+        .cat-creative { color: #f472b6; border: 1px solid rgba(244, 114, 182, 0.3); }
+        .cat-data { color: #6ee7b7; border: 1px solid rgba(110, 231, 183, 0.3); }
+        .cat-devops { color: #fdba74; border: 1px solid rgba(253, 186, 116, 0.3); }
+        .cat-sec { color: #f87171; border: 1px solid rgba(248, 113, 113, 0.3); }
+        .cat-special { color: #fde047; border: 1px solid rgba(253, 224, 71, 0.3); }
 
-        #noResults {{
+        #noResults {
             display: none;
             text-align: center;
             padding: 100px 0;
@@ -410,7 +420,7 @@ html_template = f"""<!DOCTYPE html>
             grid-column: 1 / -1;
             font-size: 1.2rem;
             letter-spacing: 2px;
-        }}
+        }
 
     </style>
 </head>
@@ -437,7 +447,7 @@ html_template = f"""<!DOCTYPE html>
         </div>
 
         <div class="tools-grid" id="toolsGrid">
-{cards_html}
+""" + cards_html + """
             <div id="noResults">// NO MATCHING AGENTS FOUND IN DATASTREAM</div>
         </div>
     </div>
@@ -447,26 +457,26 @@ html_template = f"""<!DOCTYPE html>
         const toolCards = document.querySelectorAll('.tool-card');
         const noResults = document.getElementById('noResults');
 
-        searchInput.addEventListener('input', (e) => {{
+        searchInput.addEventListener('input', (e) => {
             const query = e.target.value.toLowerCase().trim();
             let visibleCount = 0;
 
-            toolCards.forEach(card => {{
+            toolCards.forEach(card => {
                 const searchData = card.getAttribute('data-search');
-                if (searchData.includes(query)) {{
+                if (searchData.includes(query)) {
                     card.style.display = 'flex';
                     visibleCount++;
-                }} else {{
+                } else {
                     card.style.display = 'none';
-                }}
-            }});
+                }
+            });
 
-            if (visibleCount === 0) {{
+            if (visibleCount === 0) {
                 noResults.style.display = 'block';
-            }} else {{
+            } else {
                 noResults.style.display = 'none';
-            }}
-        }});
+            }
+        });
     </script>
 </body>
 </html>"""
