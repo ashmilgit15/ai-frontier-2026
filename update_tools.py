@@ -440,6 +440,70 @@ tools_data = [
         "desc": "Describe your cloud architecture in natural language and Pulumi AI generates the required Infrastructure as Code (IaC) in your language of choice.",
         "limit": "Free Personal tier",
         "link": "https://pulumi.com"
+    },
+    {
+        "name": "MultiOn",
+        "cat": "Browser Agent",
+        "cat_class": "cat-special",
+        "desc": "Leading agentic browser for real-world web navigation. Can autonomously book flights, order food, and research complex topics across multiple sites.",
+        "limit": "Free tier available",
+        "link": "https://multion.ai"
+    },
+    {
+        "name": "Skyvern",
+        "cat": "Automation Agent",
+        "cat_class": "cat-special",
+        "desc": "Open-source AI that automates browser-based workflows using computer vision and LLMs, removing the need for fragile DOM selectors.",
+        "limit": "Open Source / OSS",
+        "link": "https://skyvern.com"
+    },
+    {
+        "name": "Bright Data Scraper",
+        "cat": "Data Agent",
+        "cat_class": "cat-data",
+        "desc": "The 2026 standard for agentic web scraping. Features automated proxy rotation and CAPTCHA solving for large-scale data harvesting.",
+        "limit": "Usage-based pricing",
+        "link": "https://brightdata.com"
+    },
+    {
+        "name": "Neon Do",
+        "cat": "Web Automation",
+        "cat_class": "cat-special",
+        "desc": "A specialized agent within the Neon browser ecosystem designed for autonomous web task execution and real-time research synthesis.",
+        "limit": "Free Beta Access",
+        "link": "https://neon.ai"
+    },
+    {
+        "name": "SWE-Agent",
+        "cat": "Coding Agent",
+        "cat_class": "cat-ide",
+        "desc": "Research-driven autonomous agent that solves real software engineering tasks by reading repositories and running tests autonomously.",
+        "limit": "Open Source",
+        "link": "https://github.com/princeton-nlp/SWE-agent"
+    },
+    {
+        "name": "Cline",
+        "cat": "Coding Agent",
+        "cat_class": "cat-ide",
+        "desc": "Powerful VS Code extension that turns your editor into an autonomous agent capable of complex, multi-file engineering tasks.",
+        "limit": "Free / OSS",
+        "link": "https://cline.bot"
+    },
+    {
+        "name": "OpenHands",
+        "cat": "OSS Agent",
+        "cat_class": "cat-ide",
+        "desc": "The premier open-source autonomous agent for software engineering, formerly known as OpenDevin. Rivals proprietary agents in performance.",
+        "limit": "Free / OSS",
+        "link": "https://github.com/All-Hands-AI/OpenHands"
+    },
+    {
+        "name": "Cody",
+        "cat": "Coding Agent",
+        "cat_class": "cat-ide",
+        "desc": "Sourcegraph's AI assistant that uses a global code graph to provide context-aware completions and autonomous refactoring.",
+        "limit": "Free tier available",
+        "link": "https://sourcegraph.com/cody"
     }
 ]
 
@@ -465,8 +529,6 @@ cards_html = "\\n".join([generate_card(t) for t in tools_data])
 with open('repos/ai-frontier-2026/tools.html', 'r') as f:
     html = f.read()
 
-# Replace the grid content
-# Find the tools-grid div and everything inside it until the closing tag
 import re
 pattern = re.compile(r'(<div class="tools-grid">)(.*?)(</div>\\s*</div>\\s*</body>)', re.DOTALL | re.IGNORECASE)
 
