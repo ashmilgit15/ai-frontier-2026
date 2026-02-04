@@ -96,22 +96,55 @@
             padding: 60px 10%;
         }
 
+        .hero-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
         .page-title {
             font-family: 'Syncopate', sans-serif;
             font-size: clamp(2rem, 5vw, 4rem);
-            margin-bottom: 20px;
             text-transform: uppercase;
             background: linear-gradient(to right, #fff, var(--accent-lime));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        .search-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        #toolSearch {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--glass-border);
+            padding: 18px 30px;
+            border-radius: 100px;
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            outline: none;
+            transition: 0.3s;
+            font-size: 1rem;
+        }
+
+        #toolSearch:focus {
+            border-color: var(--accent-cyan);
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 0 30px rgba(0, 242, 255, 0.15);
+        }
+
         .page-subtitle {
             color: var(--text-dim);
             max-width: 600px;
-            margin-bottom: 60px;
             font-size: 1.1rem;
             line-height: 1.6;
+            margin-top: 20px;
         }
 
         .tools-grid {
@@ -222,6 +255,17 @@
         .cat-sec { color: #f87171; border: 1px solid rgba(248, 113, 113, 0.3); }
         .cat-special { color: #fde047; border: 1px solid rgba(253, 224, 71, 0.3); }
 
+        #noResults {
+            display: none;
+            text-align: center;
+            padding: 100px 0;
+            color: var(--text-dim);
+            font-family: 'Space Mono', monospace;
+            grid-column: 1 / -1;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+
     </style>
 </head>
 <body>
@@ -233,21 +277,28 @@
     </header>
 
     <div class="container">
-        <h1 class="page-title">The Vibe Coder's<br>Toolkit</h1>
-        <p class="page-subtitle">
-            A curated index of high-value autonomous agents and coding environments. 
-            Filtered for generous free tiers to democratize the 2026 developer stack.
-        </p>
+        <div class="hero-section">
+            <div>
+                <h1 class="page-title">The Vibe Coder's<br>Toolkit</h1>
+                <p class="page-subtitle">
+                    A comprehensive index of 100+ high-performance AI tools and models. 
+                    Real-time search enabled for the complete 2026 datastream.
+                </p>
+            </div>
+            <div class="search-container">
+                <input type="text" id="toolSearch" placeholder="Search by name, category, or task...">
+            </div>
+        </div>
 
-        <div class="tools-grid">
+        <div class="tools-grid" id="toolsGrid">
 
-            <div class="tool-card">
+            <div class="tool-card" data-search="chatgpt assistants openai's flagship assistant. multi-modal, web-connected, and capable of complex reasoning.">
                 <div class="tool-header">
                     <div class="tool-name">ChatGPT</div>
                     <div class="tool-cat cat-ide">Assistants</div>
                 </div>
                 <p class="tool-desc">
-                    The industry pioneer by OpenAI. In 2026, it features advanced multi-modal reasoning and seamless integration with personal devices.
+                    OpenAI's flagship assistant. Multi-modal, web-connected, and capable of complex reasoning.
                 </p>
                 <div class="limit-box">
                     <span class="limit-label">Status / Limits</span>
@@ -256,13 +307,13 @@
                 <a href="https://chatgpt.com" target="_blank" class="tool-link">Access ChatGPT</a>
             </div>
 
-            <div class="tool-card">
+            <div class="tool-card" data-search="claude assistants anthropic's model known for high quality writing and nuanced reasoning. large context window.">
                 <div class="tool-header">
                     <div class="tool-name">Claude</div>
                     <div class="tool-cat cat-ide">Assistants</div>
                 </div>
                 <p class="tool-desc">
-                    Anthropic's flagship model known for high emotional intelligence and complex reasoning. Massive context window for deep analysis.
+                    Anthropic's model known for high quality writing and nuanced reasoning. Large context window.
                 </p>
                 <div class="limit-box">
                     <span class="limit-label">Status / Limits</span>
@@ -271,13 +322,13 @@
                 <a href="https://claude.ai" target="_blank" class="tool-link">Access Claude</a>
             </div>
 
-            <div class="tool-card">
+            <div class="tool-card" data-search="gemini assistants google's natively multi-modal ai. integrated into workspace with a 1m+ token window.">
                 <div class="tool-header">
                     <div class="tool-name">Gemini</div>
                     <div class="tool-cat cat-ide">Assistants</div>
                 </div>
                 <p class="tool-desc">
-                    Google's natively multi-modal agent. Deeply integrated into Workspace with a 1M+ token context window.
+                    Google's natively multi-modal AI. Integrated into Workspace with a 1M+ token window.
                 </p>
                 <div class="limit-box">
                     <span class="limit-label">Status / Limits</span>
@@ -286,703 +337,13 @@
                 <a href="https://gemini.google.com" target="_blank" class="tool-link">Access Gemini</a>
             </div>
 
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Llama</div>
-                    <div class="tool-cat cat-stack">Open Source</div>
-                </div>
-                <p class="tool-desc">
-                    Meta's open-weights champion. The backbone of the 2026 local-LLM movement.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Open Weights</span>
-                </div>
-                <a href="https://llama.meta.com" target="_blank" class="tool-link">Access Llama</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">DeepSeek-R1</div>
-                    <div class="tool-cat cat-ide">Reasoning</div>
-                </div>
-                <p class="tool-desc">
-                    The breakout reasoning model of 2026. Competitive performance at a fraction of the cost.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free Chat / Low-cost API</span>
-                </div>
-                <a href="https://deepseek.com" target="_blank" class="tool-link">Access DeepSeek-R1</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Manus AI</div>
-                    <div class="tool-cat cat-special">General Agent</div>
-                </div>
-                <p class="tool-desc">
-                    A general-purpose autonomous agent that can navigate the web and execute complex tasks with human-like agency.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Subscription / Beta</span>
-                </div>
-                <a href="https://manus.ai" target="_blank" class="tool-link">Access Manus AI</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Perplexity Deep Research</div>
-                    <div class="tool-cat cat-research">Research</div>
-                </div>
-                <p class="tool-desc">
-                    Ultimate research companion. Synthesizes thousands of sources into comprehensive reports.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">5 Pro Researches / Day</span>
-                </div>
-                <a href="https://perplexity.ai" target="_blank" class="tool-link">Access Perplexity Deep Research</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Genspark</div>
-                    <div class="tool-cat cat-research">AI Search</div>
-                </div>
-                <p class="tool-desc">
-                    Agentic search engine that creates custom Sparkpages for every query.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free tier available</span>
-                </div>
-                <a href="https://genspark.ai" target="_blank" class="tool-link">Access Genspark</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">MultiOn</div>
-                    <div class="tool-cat cat-special">Action Agent</div>
-                </div>
-                <p class="tool-desc">
-                    An agent that can take actions on your behalf across the web—from booking flights to ordering food.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">API / Extension</span>
-                </div>
-                <a href="https://multion.ai" target="_blank" class="tool-link">Access MultiOn</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Cursor v4</div>
-                    <div class="tool-cat cat-ide">Coding IDE</div>
-                </div>
-                <p class="tool-desc">
-                    The gold standard for AI coding. Features the Omni-Edit engine for predictive refactoring.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free tier / Pro</span>
-                </div>
-                <a href="https://cursor.com" target="_blank" class="tool-link">Access Cursor v4</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Windsurf</div>
-                    <div class="tool-cat cat-ide">Autonomous Dev</div>
-                </div>
-                <p class="tool-desc">
-                    Integrates Devin's autonomous problem-solving directly into the editor for 'Self-Healing' code.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Unlimited Flow-mode</span>
-                </div>
-                <a href="https://codeium.com/windsurf" target="_blank" class="tool-link">Access Windsurf</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Trae</div>
-                    <div class="tool-cat cat-ide">AI IDE</div>
-                </div>
-                <p class="tool-desc">
-                    ByteDance's native AI IDE. Offers seamless 'State-Sync' and 'Unlimited Context' tier.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Unlimited (Limited Time)</span>
-                </div>
-                <a href="https://trae.ai" target="_blank" class="tool-link">Access Trae</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Aider</div>
-                    <div class="tool-cat cat-ide">CLI Coding</div>
-                </div>
-                <p class="tool-desc">
-                    The 2026 CLI King. Highest-ranked agent on coding benchmarks. Perfect for power users.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Open Source</span>
-                </div>
-                <a href="https://aider.chat" target="_blank" class="tool-link">Access Aider</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">v0.dev</div>
-                    <div class="tool-cat cat-ui">Gen UI</div>
-                </div>
-                <p class="tool-desc">
-                    Vercel's Intent Engine. Generates full-stack logic and UI components from sketches.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">50 Gens / Week</span>
-                </div>
-                <a href="https://v0.dev" target="_blank" class="tool-link">Access v0.dev</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Bolt.new</div>
-                    <div class="tool-cat cat-stack">Full Stack</div>
-                </div>
-                <p class="tool-desc">
-                    Shared Web Containers for agent collaboration. Ship SaaS products in seconds.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Unlimited Sandbox</span>
-                </div>
-                <a href="https://bolt.new" target="_blank" class="tool-link">Access Bolt.new</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Lovable</div>
-                    <div class="tool-cat cat-stack">SaaS Builder</div>
-                </div>
-                <p class="tool-desc">
-                    SaaS compliance leader. Handles GDPR, auth, and payments via chat.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free staging</span>
-                </div>
-                <a href="https://lovable.dev" target="_blank" class="tool-link">Access Lovable</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Midjourney v8</div>
-                    <div class="tool-cat cat-creative">Image Gen</div>
-                </div>
-                <p class="tool-desc">
-                    The 2026 gold standard for AI art. Perfect spatial consistency and flawless text.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Daily Credits</span>
-                </div>
-                <a href="https://midjourney.com" target="_blank" class="tool-link">Access Midjourney v8</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Flux</div>
-                    <div class="tool-cat cat-creative">Image Gen</div>
-                </div>
-                <p class="tool-desc">
-                    High-fidelity open-weights image generation. Incredible prompt adherence.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / API</span>
-                </div>
-                <a href="https://blackforestlabs.ai" target="_blank" class="tool-link">Access Flux</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Sora v2</div>
-                    <div class="tool-cat cat-creative">Video Gen</div>
-                </div>
-                <p class="tool-desc">
-                    OpenAI's cinematic engine. Generates up to 2-minute clips with perfect physics.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">1 Min / Mo</span>
-                </div>
-                <a href="https://openai.com/sora" target="_blank" class="tool-link">Access Sora v2</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Luma Dream Machine</div>
-                    <div class="tool-cat cat-creative">Video Gen</div>
-                </div>
-                <p class="tool-desc">
-                    Efficient video generation with high temporal stability and realism.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Subscription</span>
-                </div>
-                <a href="https://lumalabs.ai" target="_blank" class="tool-link">Access Luma Dream Machine</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Suno v5</div>
-                    <div class="tool-cat cat-creative">Audio/Music</div>
-                </div>
-                <p class="tool-desc">
-                    Music production with stem separation and 'Vocal-Swap' features.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">50 Credits / Day</span>
-                </div>
-                <a href="https://suno.com" target="_blank" class="tool-link">Access Suno v5</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">ElevenLabs</div>
-                    <div class="tool-cat cat-creative">Speech/Audio</div>
-                </div>
-                <p class="tool-desc">
-                    Global leader in voice synthesis. Features voice cloning and multi-lingual support.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free tier (10k chars)</span>
-                </div>
-                <a href="https://elevenlabs.io" target="_blank" class="tool-link">Access ElevenLabs</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Udio</div>
-                    <div class="tool-cat cat-creative">Music Gen</div>
-                </div>
-                <p class="tool-desc">
-                    High-fidelity music generation with complex arrangements and vocals.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Subscription</span>
-                </div>
-                <a href="https://udio.com" target="_blank" class="tool-link">Access Udio</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Runway Gen-3</div>
-                    <div class="tool-cat cat-creative">Creative Suite</div>
-                </div>
-                <p class="tool-desc">
-                    Next generation video-to-video and text-to-video suite.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Subscription</span>
-                </div>
-                <a href="https://runwayml.com" target="_blank" class="tool-link">Access Runway Gen-3</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Kling AI</div>
-                    <div class="tool-cat cat-creative">Video Gen</div>
-                </div>
-                <p class="tool-desc">
-                    Video generation known for long-duration clips and high consistency.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free daily credits</span>
-                </div>
-                <a href="https://klingai.com" target="_blank" class="tool-link">Access Kling AI</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Notion AI</div>
-                    <div class="tool-cat cat-data">Productivity</div>
-                </div>
-                <p class="tool-desc">
-                    Turn notes into data. Summarize databases and draft content.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Subscription</span>
-                </div>
-                <a href="https://notion.so" target="_blank" class="tool-link">Access Notion AI</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Grok-3</div>
-                    <div class="tool-cat cat-ide">Assistants</div>
-                </div>
-                <p class="tool-desc">
-                    xAI's model with real-time access to global conversations.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">X Premium+</span>
-                </div>
-                <a href="https://x.ai" target="_blank" class="tool-link">Access Grok-3</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Adobe Firefly</div>
-                    <div class="tool-cat cat-creative">Design</div>
-                </div>
-                <p class="tool-desc">
-                    Ethically trained generative AI integrated into Creative Cloud.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Credit-based</span>
-                </div>
-                <a href="https://adobe.com/firefly" target="_blank" class="tool-link">Access Adobe Firefly</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Jasper</div>
-                    <div class="tool-cat cat-writing">Marketing</div>
-                </div>
-                <p class="tool-desc">
-                    Enterprise content engine trained on brand voices.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Subscription</span>
-                </div>
-                <a href="https://jasper.ai" target="_blank" class="tool-link">Access Jasper</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Synthesia</div>
-                    <div class="tool-cat cat-creative">AI Video</div>
-                </div>
-                <p class="tool-desc">
-                    AI avatars in 120+ languages for training and presentations.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Subscription</span>
-                </div>
-                <a href="https://synthesia.io" target="_blank" class="tool-link">Access Synthesia</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Descript</div>
-                    <div class="tool-cat cat-data">Audio/Video</div>
-                </div>
-                <p class="tool-desc">
-                    Edit audio and video by editing text. Features 'Underlord' automation.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Subscription</span>
-                </div>
-                <a href="https://descript.com" target="_blank" class="tool-link">Access Descript</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Grammarly</div>
-                    <div class="tool-cat cat-writing">Writing</div>
-                </div>
-                <p class="tool-desc">
-                    AI assistant for stylistic shifts and structural changes.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Premium</span>
-                </div>
-                <a href="https://grammarly.com" target="_blank" class="tool-link">Access Grammarly</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Otter.ai</div>
-                    <div class="tool-cat cat-data">Transcription</div>
-                </div>
-                <p class="tool-desc">
-                    Meeting assistant that records, transcribes, and summarizes.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Pro</span>
-                </div>
-                <a href="https://otter.ai" target="_blank" class="tool-link">Access Otter.ai</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Character.ai</div>
-                    <div class="tool-cat cat-special">Conversational</div>
-                </div>
-                <p class="tool-desc">
-                    Leader in roleplay and persona-based AI voice chat.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Plus</span>
-                </div>
-                <a href="https://character.ai" target="_blank" class="tool-link">Access Character.ai</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">GitHub Copilot</div>
-                    <div class="tool-cat cat-ide">Coding</div>
-                </div>
-                <p class="tool-desc">
-                    Most widely used AI pair programmer. VS Code integrated.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">$10/mo Individuals</span>
-                </div>
-                <a href="https://github.com/features/copilot" target="_blank" class="tool-link">Access GitHub Copilot</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Replit</div>
-                    <div class="tool-cat cat-stack">Cloud Dev</div>
-                </div>
-                <p class="tool-desc">
-                    Collaborative coding environment with a powerful agent.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Core $15/mo</span>
-                </div>
-                <a href="https://replit.com" target="_blank" class="tool-link">Access Replit</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Tabnine</div>
-                    <div class="tool-cat cat-ide">Coding</div>
-                </div>
-                <p class="tool-desc">
-                    Privacy-first assistant that can be run entirely locally.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Pro</span>
-                </div>
-                <a href="https://tabnine.com" target="_blank" class="tool-link">Access Tabnine</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Continue.dev</div>
-                    <div class="tool-cat cat-stack">Coding Framework</div>
-                </div>
-                <p class="tool-desc">
-                    Bridge for coding agents. Bring your own models to any IDE.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">100% Free</span>
-                </div>
-                <a href="https://continue.dev" target="_blank" class="tool-link">Access Continue.dev</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Zed AI</div>
-                    <div class="tool-cat cat-ide">High Perf Editor</div>
-                </div>
-                <p class="tool-desc">
-                    Fast Rust-built editor with native low-latency AI.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / OSS</span>
-                </div>
-                <a href="https://zed.dev" target="_blank" class="tool-link">Access Zed AI</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Supermaven</div>
-                    <div class="tool-cat cat-stack">Fast Context</div>
-                </div>
-                <p class="tool-desc">
-                    Fastest autocomplete with a 1M+ token context window.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Pro</span>
-                </div>
-                <a href="https://supermaven.com" target="_blank" class="tool-link">Access Supermaven</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Plandex</div>
-                    <div class="tool-cat cat-ide">Complex Tasks</div>
-                </div>
-                <p class="tool-desc">
-                    AI coding engine for long-running, multi-file tasks.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Pro</span>
-                </div>
-                <a href="https://plandex.ai" target="_blank" class="tool-link">Access Plandex</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Melty</div>
-                    <div class="tool-cat cat-ide">Open Source IDE</div>
-                </div>
-                <p class="tool-desc">
-                    First open-source AI IDE that learns your coding style.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / OSS</span>
-                </div>
-                <a href="https://melty.builtwithdark.com" target="_blank" class="tool-link">Access Melty</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Void Editor</div>
-                    <div class="tool-cat cat-ide">Privacy IDE</div>
-                </div>
-                <p class="tool-desc">
-                    VS Code alternative focused on privacy and local models.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / OSS</span>
-                </div>
-                <a href="https://voideditor.com" target="_blank" class="tool-link">Access Void Editor</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Julius AI</div>
-                    <div class="tool-cat cat-data">Data Scientist</div>
-                </div>
-                <p class="tool-desc">
-                    AI agent for advanced data analysis and visualization.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">15 Messages / Mo</span>
-                </div>
-                <a href="https://julius.ai" target="_blank" class="tool-link">Access Julius AI</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Snyk AI</div>
-                    <div class="tool-cat cat-sec">Security</div>
-                </div>
-                <p class="tool-desc">
-                    Finds and fixes security vulnerabilities automatically.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free for OSS</span>
-                </div>
-                <a href="https://snyk.io" target="_blank" class="tool-link">Access Snyk AI</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Mistral</div>
-                    <div class="tool-cat cat-stack">Open Source</div>
-                </div>
-                <p class="tool-desc">
-                    European champion of open-weights models like Large and Pixtral.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Open Weights</span>
-                </div>
-                <a href="https://mistral.ai" target="_blank" class="tool-link">Access Mistral</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Stable Diffusion</div>
-                    <div class="tool-cat cat-creative">Image Gen</div>
-                </div>
-                <p class="tool-desc">
-                    The open-weights king for local image generation.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">100% Free (Local)</span>
-                </div>
-                <a href="https://stability.ai" target="_blank" class="tool-link">Access Stable Diffusion</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Whisper</div>
-                    <div class="tool-cat cat-data">Audio/STT</div>
-                </div>
-                <p class="tool-desc">
-                    Industry-standard speech-to-text model by OpenAI.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Open Source</span>
-                </div>
-                <a href="https://openai.com/research/whisper" target="_blank" class="tool-link">Access Whisper</a>
-            </div>
-
-            <div class="tool-card">
-                <div class="tool-header">
-                    <div class="tool-name">Poe</div>
-                    <div class="tool-cat cat-special">Aggregator</div>
-                </div>
-                <p class="tool-desc">
-                    Platform bringing every major LLM into one interface.
-                </p>
-                <div class="limit-box">
-                    <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Sub</span>
-                </div>
-                <a href="https://poe.com" target="_blank" class="tool-link">Access Poe</a>
-            </div>
-
-            <div class="tool-card">
+            <div class="tool-card" data-search="pi personal ai empathetic companion ai by inflection. focused on high-quality conversation and eq.">
                 <div class="tool-header">
                     <div class="tool-name">Pi</div>
                     <div class="tool-cat cat-special">Personal AI</div>
                 </div>
                 <p class="tool-desc">
-                    Companion AI designed for high-quality, empathetic conversation.
+                    Empathetic companion AI by Inflection. Focused on high-quality conversation and EQ.
                 </p>
                 <div class="limit-box">
                     <span class="limit-label">Status / Limits</span>
@@ -991,66 +352,1624 @@
                 <a href="https://pi.ai" target="_blank" class="tool-link">Access Pi</a>
             </div>
 
-            <div class="tool-card">
+            <div class="tool-card" data-search="grok-3 assistants xai's model with real-time x data access and bold, un-filtered reasoning.">
                 <div class="tool-header">
-                    <div class="tool-name">Phind</div>
-                    <div class="tool-cat cat-research">Dev Search</div>
+                    <div class="tool-name">Grok-3</div>
+                    <div class="tool-cat cat-ide">Assistants</div>
                 </div>
                 <p class="tool-desc">
-                    Search engine for developers. Connects codebase to web.
+                    xAI's model with real-time X data access and bold, un-filtered reasoning.
                 </p>
                 <div class="limit-box">
                     <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free / Pro</span>
+                    <span class="limit-val">X Premium+</span>
                 </div>
-                <a href="https://phind.com" target="_blank" class="tool-link">Access Phind</a>
+                <a href="https://x.ai" target="_blank" class="tool-link">Access Grok-3</a>
             </div>
 
-            <div class="tool-card">
+            <div class="tool-card" data-search="deepseek-r1 reasoning powerful open-weights reasoning model with high-tier performance at low cost.">
                 <div class="tool-header">
-                    <div class="tool-name">Skyvern</div>
-                    <div class="tool-cat cat-special">Browser Agent</div>
+                    <div class="tool-name">DeepSeek-R1</div>
+                    <div class="tool-cat cat-ide">Reasoning</div>
                 </div>
                 <p class="tool-desc">
-                    Open-source browser automation agent using LLMs.
+                    Powerful open-weights reasoning model with high-tier performance at low cost.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free Chat / API</span>
+                </div>
+                <a href="https://deepseek.com" target="_blank" class="tool-link">Access DeepSeek-R1</a>
+            </div>
+
+            <div class="tool-card" data-search="mistral large open source mistral ai's flagship model. european powerhouse for efficiency and reasoning.">
+                <div class="tool-header">
+                    <div class="tool-name">Mistral Large</div>
+                    <div class="tool-cat cat-stack">Open Source</div>
+                </div>
+                <p class="tool-desc">
+                    Mistral AI's flagship model. European powerhouse for efficiency and reasoning.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Usage-based</span>
+                </div>
+                <a href="https://mistral.ai" target="_blank" class="tool-link">Access Mistral Large</a>
+            </div>
+
+            <div class="tool-card" data-search="llama 3.1 open source meta's highly capable open-weights models powering the local-llm ecosystem.">
+                <div class="tool-header">
+                    <div class="tool-name">Llama 3.1</div>
+                    <div class="tool-cat cat-stack">Open Source</div>
+                </div>
+                <p class="tool-desc">
+                    Meta's highly capable open-weights models powering the local-LLM ecosystem.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Open Weights</span>
+                </div>
+                <a href="https://llama.meta.com" target="_blank" class="tool-link">Access Llama 3.1</a>
+            </div>
+
+            <div class="tool-card" data-search="gemma 2 open source google's lightweight open-model family built for efficiency and research.">
+                <div class="tool-header">
+                    <div class="tool-name">Gemma 2</div>
+                    <div class="tool-cat cat-stack">Open Source</div>
+                </div>
+                <p class="tool-desc">
+                    Google's lightweight open-model family built for efficiency and research.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Open Weights</span>
+                </div>
+                <a href="https://ai.google.dev/gemma" target="_blank" class="tool-link">Access Gemma 2</a>
+            </div>
+
+            <div class="tool-card" data-search="falcon 2 open source tii's high-performance open-source model suite from the uae.">
+                <div class="tool-header">
+                    <div class="tool-name">Falcon 2</div>
+                    <div class="tool-cat cat-stack">Open Source</div>
+                </div>
+                <p class="tool-desc">
+                    TII's high-performance open-source model suite from the UAE.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Open Weights</span>
+                </div>
+                <a href="https://falconllm.tii.ae" target="_blank" class="tool-link">Access Falcon 2</a>
+            </div>
+
+            <div class="tool-card" data-search="cursor v4 coding ide the ultimate ai ide. omni-edit predicts entire architectural refactors.">
+                <div class="tool-header">
+                    <div class="tool-name">Cursor v4</div>
+                    <div class="tool-cat cat-ide">Coding IDE</div>
+                </div>
+                <p class="tool-desc">
+                    The ultimate AI IDE. Omni-Edit predicts entire architectural refactors.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier / Pro</span>
+                </div>
+                <a href="https://cursor.com" target="_blank" class="tool-link">Access Cursor v4</a>
+            </div>
+
+            <div class="tool-card" data-search="windsurf autonomous dev integrates devin's autonomous planning directly into the editor for self-healing code.">
+                <div class="tool-header">
+                    <div class="tool-name">Windsurf</div>
+                    <div class="tool-cat cat-ide">Autonomous Dev</div>
+                </div>
+                <p class="tool-desc">
+                    Integrates Devin's autonomous planning directly into the editor for self-healing code.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Unlimited Flow-mode</span>
+                </div>
+                <a href="https://codeium.com/windsurf" target="_blank" class="tool-link">Access Windsurf</a>
+            </div>
+
+            <div class="tool-card" data-search="trae ai ide bytedance's ai ide with state-sync and unlimited reasoning for developers.">
+                <div class="tool-header">
+                    <div class="tool-name">Trae</div>
+                    <div class="tool-cat cat-ide">AI IDE</div>
+                </div>
+                <p class="tool-desc">
+                    ByteDance's AI IDE with state-sync and unlimited reasoning for developers.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Unlimited (Limited Time)</span>
+                </div>
+                <a href="https://trae.ai" target="_blank" class="tool-link">Access Trae</a>
+            </div>
+
+            <div class="tool-card" data-search="aider cli coding cli champion for rapid multi-file editing and autonomous coding workflows.">
+                <div class="tool-header">
+                    <div class="tool-name">Aider</div>
+                    <div class="tool-cat cat-ide">CLI Coding</div>
+                </div>
+                <p class="tool-desc">
+                    CLI champion for rapid multi-file editing and autonomous coding workflows.
                 </p>
                 <div class="limit-box">
                     <span class="limit-label">Status / Limits</span>
                     <span class="limit-val">Open Source</span>
                 </div>
-                <a href="https://skyvern.com" target="_blank" class="tool-link">Access Skyvern</a>
+                <a href="https://aider.chat" target="_blank" class="tool-link">Access Aider</a>
             </div>
 
-            <div class="tool-card">
+            <div class="tool-card" data-search="github copilot coding assistant the standard in ai pair programming, deeply integrated into vs code and jetbrains.">
                 <div class="tool-header">
-                    <div class="tool-name">E2B</div>
-                    <div class="tool-cat cat-devops">Agent Infra</div>
+                    <div class="tool-name">GitHub Copilot</div>
+                    <div class="tool-cat cat-ide">Coding Assistant</div>
                 </div>
                 <p class="tool-desc">
-                    Secure, sandboxed cloud environments for AI agents.
+                    The standard in AI pair programming, deeply integrated into VS Code and JetBrains.
                 </p>
                 <div class="limit-box">
                     <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Generous Free Tier</span>
+                    <span class="limit-val">$10/mo Individuals</span>
                 </div>
-                <a href="https://e2b.dev" target="_blank" class="tool-link">Access E2B</a>
+                <a href="https://github.com/features/copilot" target="_blank" class="tool-link">Access GitHub Copilot</a>
             </div>
 
-            <div class="tool-card">
+            <div class="tool-card" data-search="zed ai high perf editor rust-built editor with neural-sync for a zero-latency ai experience.">
                 <div class="tool-header">
-                    <div class="tool-name">Pulumi AI</div>
-                    <div class="tool-cat cat-devops">Infrastructure</div>
+                    <div class="tool-name">Zed AI</div>
+                    <div class="tool-cat cat-ide">High Perf Editor</div>
                 </div>
                 <p class="tool-desc">
-                    Generate cloud infrastructure code using natural language.
+                    Rust-built editor with neural-sync for a zero-latency AI experience.
                 </p>
                 <div class="limit-box">
                     <span class="limit-label">Status / Limits</span>
-                    <span class="limit-val">Free Personal</span>
+                    <span class="limit-val">Free / OSS</span>
                 </div>
-                <a href="https://pulumi.com" target="_blank" class="tool-link">Access Pulumi AI</a>
+                <a href="https://zed.dev" target="_blank" class="tool-link">Access Zed AI</a>
             </div>
+
+            <div class="tool-card" data-search="codeium coding assistant free-for-individuals alternative to copilot with strong context awareness.">
+                <div class="tool-header">
+                    <div class="tool-name">Codeium</div>
+                    <div class="tool-cat cat-ide">Coding Assistant</div>
+                </div>
+                <p class="tool-desc">
+                    Free-for-individuals alternative to Copilot with strong context awareness.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free for Individuals</span>
+                </div>
+                <a href="https://codeium.com" target="_blank" class="tool-link">Access Codeium</a>
+            </div>
+
+            <div class="tool-card" data-search="tabnine coding assistant privacy-first coding assistant that can run entirely on-prem or local.">
+                <div class="tool-header">
+                    <div class="tool-name">Tabnine</div>
+                    <div class="tool-cat cat-ide">Coding Assistant</div>
+                </div>
+                <p class="tool-desc">
+                    Privacy-first coding assistant that can run entirely on-prem or local.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Pro</span>
+                </div>
+                <a href="https://tabnine.com" target="_blank" class="tool-link">Access Tabnine</a>
+            </div>
+
+            <div class="tool-card" data-search="continue.dev dev bridge open-source library to plug any model into your ide's agentic loop.">
+                <div class="tool-header">
+                    <div class="tool-name">Continue.dev</div>
+                    <div class="tool-cat cat-stack">Dev Bridge</div>
+                </div>
+                <p class="tool-desc">
+                    Open-source library to plug any model into your IDE's agentic loop.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">100% Free / OSS</span>
+                </div>
+                <a href="https://continue.dev" target="_blank" class="tool-link">Access Continue.dev</a>
+            </div>
+
+            <div class="tool-card" data-search="melty open source ide an ide that learns your style and frustration levels to provide better help.">
+                <div class="tool-header">
+                    <div class="tool-name">Melty</div>
+                    <div class="tool-cat cat-ide">Open Source IDE</div>
+                </div>
+                <p class="tool-desc">
+                    An IDE that learns your style and Frustration levels to provide better help.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / OSS</span>
+                </div>
+                <a href="https://melty.builtwithdark.com" target="_blank" class="tool-link">Access Melty</a>
+            </div>
+
+            <div class="tool-card" data-search="void editor privacy ide vs code fork built for local-llm integration without data telemetry.">
+                <div class="tool-header">
+                    <div class="tool-name">Void Editor</div>
+                    <div class="tool-cat cat-ide">Privacy IDE</div>
+                </div>
+                <p class="tool-desc">
+                    VS Code fork built for Local-LLM integration without data telemetry.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / OSS</span>
+                </div>
+                <a href="https://voideditor.com" target="_blank" class="tool-link">Access Void Editor</a>
+            </div>
+
+            <div class="tool-card" data-search="plandex task agent cli tool for long-running, multi-file tasks with automated planning.">
+                <div class="tool-header">
+                    <div class="tool-name">Plandex</div>
+                    <div class="tool-cat cat-ide">Task Agent</div>
+                </div>
+                <p class="tool-desc">
+                    CLI tool for long-running, multi-file tasks with automated planning.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Pro</span>
+                </div>
+                <a href="https://plandex.ai" target="_blank" class="tool-link">Access Plandex</a>
+            </div>
+
+            <div class="tool-card" data-search="mintlify documentation ai-powered platform to build beautiful, automated technical documentation.">
+                <div class="tool-header">
+                    <div class="tool-name">Mintlify</div>
+                    <div class="tool-cat cat-ui">Documentation</div>
+                </div>
+                <p class="tool-desc">
+                    AI-powered platform to build beautiful, automated technical documentation.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier / Pro</span>
+                </div>
+                <a href="https://mintlify.com" target="_blank" class="tool-link">Access Mintlify</a>
+            </div>
+
+            <div class="tool-card" data-search="openhands oss agent autonomous open-source agent capable of full project implementations.">
+                <div class="tool-header">
+                    <div class="tool-name">OpenHands</div>
+                    <div class="tool-cat cat-ide">OSS Agent</div>
+                </div>
+                <p class="tool-desc">
+                    Autonomous open-source agent capable of full project implementations.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / OSS</span>
+                </div>
+                <a href="https://github.com/All-Hands-AI/OpenHands" target="_blank" class="tool-link">Access OpenHands</a>
+            </div>
+
+            <div class="tool-card" data-search="cody (sourcegraph) coding ai codebase-aware agent by sourcegraph for searching and fixing large repos.">
+                <div class="tool-header">
+                    <div class="tool-name">Cody (Sourcegraph)</div>
+                    <div class="tool-cat cat-ide">Coding AI</div>
+                </div>
+                <p class="tool-desc">
+                    Codebase-aware agent by Sourcegraph for searching and fixing large repos.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://sourcegraph.com/cody" target="_blank" class="tool-link">Access Cody (Sourcegraph)</a>
+            </div>
+
+            <div class="tool-card" data-search="mutable.ai software engineering accelerates software development with high-quality ai-generated code and docs.">
+                <div class="tool-header">
+                    <div class="tool-name">Mutable.ai</div>
+                    <div class="tool-cat cat-ide">Software Engineering</div>
+                </div>
+                <p class="tool-desc">
+                    Accelerates software development with high-quality AI-generated code and docs.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://mutable.ai" target="_blank" class="tool-link">Access Mutable.ai</a>
+            </div>
+
+            <div class="tool-card" data-search="amazon codewhisperer coding assistant aws-optimized ai coding assistant for secure, high-quality development.">
+                <div class="tool-header">
+                    <div class="tool-name">Amazon CodeWhisperer</div>
+                    <div class="tool-cat cat-ide">Coding Assistant</div>
+                </div>
+                <p class="tool-desc">
+                    AWS-optimized AI coding assistant for secure, high-quality development.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free for Individuals</span>
+                </div>
+                <a href="https://aws.amazon.com/codewhisperer" target="_blank" class="tool-link">Access Amazon CodeWhisperer</a>
+            </div>
+
+            <div class="tool-card" data-search="replit agent cloud agent build and deploy full-stack apps entirely through a natural language chat.">
+                <div class="tool-header">
+                    <div class="tool-name">Replit Agent</div>
+                    <div class="tool-cat cat-stack">Cloud Agent</div>
+                </div>
+                <p class="tool-desc">
+                    Build and deploy full-stack apps entirely through a natural language chat.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Core Subscription</span>
+                </div>
+                <a href="https://replit.com/ai" target="_blank" class="tool-link">Access Replit Agent</a>
+            </div>
+
+            <div class="tool-card" data-search="fig (postman) cli tools adds visual autocomplete and ai command generation to your terminal.">
+                <div class="tool-header">
+                    <div class="tool-name">Fig (Postman)</div>
+                    <div class="tool-cat cat-ide">CLI Tools</div>
+                </div>
+                <p class="tool-desc">
+                    Adds visual autocomplete and AI command generation to your terminal.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free for Individuals</span>
+                </div>
+                <a href="https://fig.io" target="_blank" class="tool-link">Access Fig (Postman)</a>
+            </div>
+
+            <div class="tool-card" data-search="blackbox ai coding search in-editor ai for searching code snippets and generating functions instantly.">
+                <div class="tool-header">
+                    <div class="tool-name">Blackbox AI</div>
+                    <div class="tool-cat cat-ide">Coding Search</div>
+                </div>
+                <p class="tool-desc">
+                    In-editor AI for searching code snippets and generating functions instantly.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://useblackbox.io" target="_blank" class="tool-link">Access Blackbox AI</a>
+            </div>
+
+            <div class="tool-card" data-search="midjourney v8 image gen the 2026 standard for high-fidelity ai art and stylistic consistency.">
+                <div class="tool-header">
+                    <div class="tool-name">Midjourney v8</div>
+                    <div class="tool-cat cat-creative">Image Gen</div>
+                </div>
+                <p class="tool-desc">
+                    The 2026 standard for high-fidelity AI art and stylistic consistency.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Subscription based</span>
+                </div>
+                <a href="https://midjourney.com" target="_blank" class="tool-link">Access Midjourney v8</a>
+            </div>
+
+            <div class="tool-card" data-search="dall-e 3 image gen openai's image engine. known for perfect prompt adherence and easy chatgpt use.">
+                <div class="tool-header">
+                    <div class="tool-name">DALL-E 3</div>
+                    <div class="tool-cat cat-creative">Image Gen</div>
+                </div>
+                <p class="tool-desc">
+                    OpenAI's image engine. Known for perfect prompt adherence and easy ChatGPT use.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Included in Plus</span>
+                </div>
+                <a href="https://openai.com/dall-e-3" target="_blank" class="tool-link">Access DALL-E 3</a>
+            </div>
+
+            <div class="tool-card" data-search="flux.1 image gen open-weights image generator by black forest labs with realistic human features.">
+                <div class="tool-header">
+                    <div class="tool-name">Flux.1</div>
+                    <div class="tool-cat cat-creative">Image Gen</div>
+                </div>
+                <p class="tool-desc">
+                    Open-weights image generator by Black Forest Labs with realistic human features.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free (Schnell) / API</span>
+                </div>
+                <a href="https://blackforestlabs.ai" target="_blank" class="tool-link">Access Flux.1</a>
+            </div>
+
+            <div class="tool-card" data-search="stable diffusion 3 image gen stability ai's latest. multimodal diffusion transformer for hyper-realism.">
+                <div class="tool-header">
+                    <div class="tool-name">Stable Diffusion 3</div>
+                    <div class="tool-cat cat-creative">Image Gen</div>
+                </div>
+                <p class="tool-desc">
+                    Stability AI's latest. Multimodal diffusion transformer for hyper-realism.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free (Local) / API</span>
+                </div>
+                <a href="https://stability.ai" target="_blank" class="tool-link">Access Stable Diffusion 3</a>
+            </div>
+
+            <div class="tool-card" data-search="ideogram 2.0 image gen the king of text-in-images. creates perfect typography and graphic designs.">
+                <div class="tool-header">
+                    <div class="tool-name">Ideogram 2.0</div>
+                    <div class="tool-cat cat-creative">Image Gen</div>
+                </div>
+                <p class="tool-desc">
+                    The king of text-in-images. Creates perfect typography and graphic designs.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free daily uses</span>
+                </div>
+                <a href="https://ideogram.ai" target="_blank" class="tool-link">Access Ideogram 2.0</a>
+            </div>
+
+            <div class="tool-card" data-search="leonardo.ai creative suite production-grade image platform with fine-tuned models for games and art.">
+                <div class="tool-header">
+                    <div class="tool-name">Leonardo.ai</div>
+                    <div class="tool-cat cat-creative">Creative Suite</div>
+                </div>
+                <p class="tool-desc">
+                    Production-grade image platform with fine-tuned models for games and art.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Daily Free Tokens</span>
+                </div>
+                <a href="https://leonardo.ai" target="_blank" class="tool-link">Access Leonardo.ai</a>
+            </div>
+
+            <div class="tool-card" data-search="recraft v3 vector/ui gen ai for graphic designers. generates vectors, icons, and consistent sets.">
+                <div class="tool-header">
+                    <div class="tool-name">Recraft V3</div>
+                    <div class="tool-cat cat-creative">Vector/UI Gen</div>
+                </div>
+                <p class="tool-desc">
+                    AI for graphic designers. Generates vectors, icons, and consistent sets.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://recraft.ai" target="_blank" class="tool-link">Access Recraft V3</a>
+            </div>
+
+            <div class="tool-card" data-search="krea ai image enhancer real-time ai generation and high-quality upscaling for designers.">
+                <div class="tool-header">
+                    <div class="tool-name">Krea AI</div>
+                    <div class="tool-cat cat-creative">Image Enhancer</div>
+                </div>
+                <p class="tool-desc">
+                    Real-time AI generation and high-quality upscaling for designers.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier / Pro</span>
+                </div>
+                <a href="https://krea.ai" target="_blank" class="tool-link">Access Krea AI</a>
+            </div>
+
+            <div class="tool-card" data-search="playground ai creative tools user-friendly platform for combining and editing ai-generated images.">
+                <div class="tool-header">
+                    <div class="tool-name">Playground AI</div>
+                    <div class="tool-cat cat-creative">Creative Tools</div>
+                </div>
+                <p class="tool-desc">
+                    User-friendly platform for combining and editing AI-generated images.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier / Sub</span>
+                </div>
+                <a href="https://playground.com" target="_blank" class="tool-link">Access Playground AI</a>
+            </div>
+
+            <div class="tool-card" data-search="magnific ai upscaler the most powerful ai detail enhancer and upscaler in the world.">
+                <div class="tool-header">
+                    <div class="tool-name">Magnific AI</div>
+                    <div class="tool-cat cat-creative">Upscaler</div>
+                </div>
+                <p class="tool-desc">
+                    The most powerful AI detail enhancer and upscaler in the world.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Subscription only</span>
+                </div>
+                <a href="https://magnific.ai" target="_blank" class="tool-link">Access Magnific AI</a>
+            </div>
+
+            <div class="tool-card" data-search="adobe firefly design gen ethically trained generative ai integrated into creative cloud tools.">
+                <div class="tool-header">
+                    <div class="tool-name">Adobe Firefly</div>
+                    <div class="tool-cat cat-creative">Design Gen</div>
+                </div>
+                <p class="tool-desc">
+                    Ethically trained generative AI integrated into Creative Cloud tools.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Credit-based / Free</span>
+                </div>
+                <a href="https://firefly.adobe.com" target="_blank" class="tool-link">Access Adobe Firefly</a>
+            </div>
+
+            <div class="tool-card" data-search="canva magic media design tool text-to-image and text-to-video generation within the canva ecosystem.">
+                <div class="tool-header">
+                    <div class="tool-name">Canva Magic Media</div>
+                    <div class="tool-cat cat-creative">Design Tool</div>
+                </div>
+                <p class="tool-desc">
+                    Text-to-image and text-to-video generation within the Canva ecosystem.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Pro</span>
+                </div>
+                <a href="https://canva.com" target="_blank" class="tool-link">Access Canva Magic Media</a>
+            </div>
+
+            <div class="tool-card" data-search="nightcafe creator ai art community-driven ai art platform with multiple model algorithms.">
+                <div class="tool-header">
+                    <div class="tool-name">NightCafe Creator</div>
+                    <div class="tool-cat cat-creative">AI Art</div>
+                </div>
+                <p class="tool-desc">
+                    Community-driven AI art platform with multiple model algorithms.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Credit-based / Free</span>
+                </div>
+                <a href="https://nightcafe.studio" target="_blank" class="tool-link">Access NightCafe Creator</a>
+            </div>
+
+            <div class="tool-card" data-search="artbreeder image mixing collaborative image tool for 'breeding' and evolving ai portraits and landscapes.">
+                <div class="tool-header">
+                    <div class="tool-name">Artbreeder</div>
+                    <div class="tool-cat cat-creative">Image Mixing</div>
+                </div>
+                <p class="tool-desc">
+                    Collaborative image tool for 'breeding' and evolving AI portraits and landscapes.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://artbreeder.com" target="_blank" class="tool-link">Access Artbreeder</a>
+            </div>
+
+            <div class="tool-card" data-search="photoroom photo editing ai-powered background removal and professional product photography generation.">
+                <div class="tool-header">
+                    <div class="tool-name">Photoroom</div>
+                    <div class="tool-cat cat-creative">Photo Editing</div>
+                </div>
+                <p class="tool-desc">
+                    AI-powered background removal and professional product photography generation.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Pro</span>
+                </div>
+                <a href="https://photoroom.com" target="_blank" class="tool-link">Access Photoroom</a>
+            </div>
+
+            <div class="tool-card" data-search="lensa ai mobile creative all-in-one photo editor known for magic avatars and ai image styles.">
+                <div class="tool-header">
+                    <div class="tool-name">Lensa AI</div>
+                    <div class="tool-cat cat-creative">Mobile Creative</div>
+                </div>
+                <p class="tool-desc">
+                    All-in-one photo editor known for Magic Avatars and AI image styles.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free trial / Sub</span>
+                </div>
+                <a href="https://prisma-ai.com/lensa" target="_blank" class="tool-link">Access Lensa AI</a>
+            </div>
+
+            <div class="tool-card" data-search="deepart style transfer turns your photos into artworks using the styles of famous painters.">
+                <div class="tool-header">
+                    <div class="tool-name">DeepArt</div>
+                    <div class="tool-cat cat-creative">Style Transfer</div>
+                </div>
+                <p class="tool-desc">
+                    Turns your photos into artworks using the styles of famous painters.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free to try</span>
+                </div>
+                <a href="https://deepart.io" target="_blank" class="tool-link">Access DeepArt</a>
+            </div>
+
+            <div class="tool-card" data-search="craiyon lightweight image simple, free text-to-image generator formerly known as dall-e mini.">
+                <div class="tool-header">
+                    <div class="tool-name">Craiyon</div>
+                    <div class="tool-cat cat-creative">Lightweight Image</div>
+                </div>
+                <p class="tool-desc">
+                    Simple, free text-to-image generator formerly known as DALL-E mini.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Ad-supported</span>
+                </div>
+                <a href="https://craiyon.com" target="_blank" class="tool-link">Access Craiyon</a>
+            </div>
+
+            <div class="tool-card" data-search="vanceai photo enhancement ai tools for sharpening, denoising, and restoring old photographs.">
+                <div class="tool-header">
+                    <div class="tool-name">VanceAI</div>
+                    <div class="tool-cat cat-creative">Photo Enhancement</div>
+                </div>
+                <p class="tool-desc">
+                    AI tools for sharpening, denoising, and restoring old photographs.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Credit-based</span>
+                </div>
+                <a href="https://vanceai.com" target="_blank" class="tool-link">Access VanceAI</a>
+            </div>
+
+            <div class="tool-card" data-search="looka logo design ai logo maker and brand builder for entrepreneurs and small businesses.">
+                <div class="tool-header">
+                    <div class="tool-name">Looka</div>
+                    <div class="tool-cat cat-creative">Logo Design</div>
+                </div>
+                <p class="tool-desc">
+                    AI logo maker and brand builder for entrepreneurs and small businesses.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Pay-per-design</span>
+                </div>
+                <a href="https://looka.com" target="_blank" class="tool-link">Access Looka</a>
+            </div>
+
+            <div class="tool-card" data-search="sora v2 video gen openai's cinematic engine. generates 2-min clips with perfect temporal physics.">
+                <div class="tool-header">
+                    <div class="tool-name">Sora v2</div>
+                    <div class="tool-cat cat-creative">Video Gen</div>
+                </div>
+                <p class="tool-desc">
+                    OpenAI's cinematic engine. Generates 2-min clips with perfect temporal physics.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Subscription only</span>
+                </div>
+                <a href="https://openai.com/sora" target="_blank" class="tool-link">Access Sora v2</a>
+            </div>
+
+            <div class="tool-card" data-search="runway gen-3 video gen high-end video-to-video and text-to-video tool for professional vfx.">
+                <div class="tool-header">
+                    <div class="tool-name">Runway Gen-3</div>
+                    <div class="tool-cat cat-creative">Video Gen</div>
+                </div>
+                <p class="tool-desc">
+                    High-end video-to-video and text-to-video tool for professional VFX.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Subscription based</span>
+                </div>
+                <a href="https://runwayml.com" target="_blank" class="tool-link">Access Runway Gen-3</a>
+            </div>
+
+            <div class="tool-card" data-search="luma dream machine video gen rapid video generation from text or images with high realism.">
+                <div class="tool-header">
+                    <div class="tool-name">Luma Dream Machine</div>
+                    <div class="tool-cat cat-creative">Video Gen</div>
+                </div>
+                <p class="tool-desc">
+                    Rapid video generation from text or images with high realism.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free 30 Gens / Mo</span>
+                </div>
+                <a href="https://lumalabs.ai" target="_blank" class="tool-link">Access Luma Dream Machine</a>
+            </div>
+
+            <div class="tool-card" data-search="kling ai video gen advanced video generator known for long clips and complex movements.">
+                <div class="tool-header">
+                    <div class="tool-name">Kling AI</div>
+                    <div class="tool-cat cat-creative">Video Gen</div>
+                </div>
+                <p class="tool-desc">
+                    Advanced video generator known for long clips and complex movements.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free daily credits</span>
+                </div>
+                <a href="https://klingai.com" target="_blank" class="tool-link">Access Kling AI</a>
+            </div>
+
+            <div class="tool-card" data-search="pika 1.5 animation famous for physics-defying effects and creative animation styles.">
+                <div class="tool-header">
+                    <div class="tool-name">Pika 1.5</div>
+                    <div class="tool-cat cat-creative">Animation</div>
+                </div>
+                <p class="tool-desc">
+                    Famous for physics-defying effects and creative animation styles.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://pika.art" target="_blank" class="tool-link">Access Pika 1.5</a>
+            </div>
+
+            <div class="tool-card" data-search="haiper ai video gen visual foundation model for artistic and high-quality video generation.">
+                <div class="tool-header">
+                    <div class="tool-name">Haiper AI</div>
+                    <div class="tool-cat cat-creative">Video Gen</div>
+                </div>
+                <p class="tool-desc">
+                    Visual foundation model for artistic and high-quality video generation.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free daily credits</span>
+                </div>
+                <a href="https://haiper.ai" target="_blank" class="tool-link">Access Haiper AI</a>
+            </div>
+
+            <div class="tool-card" data-search="synthesia ai avatars create video presentations with realistic digital actors in 120+ languages.">
+                <div class="tool-header">
+                    <div class="tool-name">Synthesia</div>
+                    <div class="tool-cat cat-creative">AI Avatars</div>
+                </div>
+                <p class="tool-desc">
+                    Create video presentations with realistic digital actors in 120+ languages.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Subscription only</span>
+                </div>
+                <a href="https://synthesia.io" target="_blank" class="tool-link">Access Synthesia</a>
+            </div>
+
+            <div class="tool-card" data-search="heygen ai video leading platform for ai video translation and lip-syncing avatars.">
+                <div class="tool-header">
+                    <div class="tool-name">HeyGen</div>
+                    <div class="tool-cat cat-creative">AI Video</div>
+                </div>
+                <p class="tool-desc">
+                    Leading platform for AI video translation and lip-syncing avatars.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier / Sub</span>
+                </div>
+                <a href="https://heygen.com" target="_blank" class="tool-link">Access HeyGen</a>
+            </div>
+
+            <div class="tool-card" data-search="invideo ai video editor generate full youtube or tiktok videos from a single text prompt.">
+                <div class="tool-header">
+                    <div class="tool-name">InVideo AI</div>
+                    <div class="tool-cat cat-creative">Video Editor</div>
+                </div>
+                <p class="tool-desc">
+                    Generate full YouTube or TikTok videos from a single text prompt.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://invideo.io" target="_blank" class="tool-link">Access InVideo AI</a>
+            </div>
+
+            <div class="tool-card" data-search="veed.io video editing cloud-based video editor with heavy ai for captions, cuts, and translations.">
+                <div class="tool-header">
+                    <div class="tool-name">Veed.io</div>
+                    <div class="tool-cat cat-creative">Video Editing</div>
+                </div>
+                <p class="tool-desc">
+                    Cloud-based video editor with heavy AI for captions, cuts, and translations.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier / Sub</span>
+                </div>
+                <a href="https://veed.io" target="_blank" class="tool-link">Access Veed.io</a>
+            </div>
+
+            <div class="tool-card" data-search="captions.ai content studio full mobile studio for creators with ai eye contact and captions.">
+                <div class="tool-header">
+                    <div class="tool-name">Captions.ai</div>
+                    <div class="tool-cat cat-creative">Content Studio</div>
+                </div>
+                <p class="tool-desc">
+                    Full mobile studio for creators with AI eye contact and captions.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Subscription based</span>
+                </div>
+                <a href="https://captions.ai" target="_blank" class="tool-link">Access Captions.ai</a>
+            </div>
+
+            <div class="tool-card" data-search="opusclip short-form gen turns long-form videos into high-engagement shorts and reels automatically.">
+                <div class="tool-header">
+                    <div class="tool-name">OpusClip</div>
+                    <div class="tool-cat cat-creative">Short-form Gen</div>
+                </div>
+                <p class="tool-desc">
+                    Turns long-form videos into high-engagement shorts and reels automatically.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier / Pro</span>
+                </div>
+                <a href="https://opus.pro" target="_blank" class="tool-link">Access OpusClip</a>
+            </div>
+
+            <div class="tool-card" data-search="munch social clips ai platform that extracts viral moments from long-form video content.">
+                <div class="tool-header">
+                    <div class="tool-name">Munch</div>
+                    <div class="tool-cat cat-creative">Social Clips</div>
+                </div>
+                <p class="tool-desc">
+                    AI platform that extracts viral moments from long-form video content.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Subscription based</span>
+                </div>
+                <a href="https://getmunch.com" target="_blank" class="tool-link">Access Munch</a>
+            </div>
+
+            <div class="tool-card" data-search="riverside.fm ai podcast studio remote recording with ai-powered cleaning, clips, and magic tools.">
+                <div class="tool-header">
+                    <div class="tool-name">Riverside.fm AI</div>
+                    <div class="tool-cat cat-data">Podcast Studio</div>
+                </div>
+                <p class="tool-desc">
+                    Remote recording with AI-powered cleaning, clips, and magic tools.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://riverside.fm" target="_blank" class="tool-link">Access Riverside.fm AI</a>
+            </div>
+
+            <div class="tool-card" data-search="descript underlord video assistant personal ai editor that automates tedious cuts, zooms, and cleaning.">
+                <div class="tool-header">
+                    <div class="tool-name">Descript Underlord</div>
+                    <div class="tool-cat cat-data">Video Assistant</div>
+                </div>
+                <p class="tool-desc">
+                    Personal AI editor that automates tedious cuts, zooms, and cleaning.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Sub</span>
+                </div>
+                <a href="https://descript.com" target="_blank" class="tool-link">Access Descript Underlord</a>
+            </div>
+
+            <div class="tool-card" data-search="colossyan video avatars ai video creator for training with high-quality digital presenters.">
+                <div class="tool-header">
+                    <div class="tool-name">Colossyan</div>
+                    <div class="tool-cat cat-creative">Video Avatars</div>
+                </div>
+                <p class="tool-desc">
+                    AI video creator for training with high-quality digital presenters.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free trial available</span>
+                </div>
+                <a href="https://colossyan.com" target="_blank" class="tool-link">Access Colossyan</a>
+            </div>
+
+            <div class="tool-card" data-search="elai.io ai video generate learning and development videos from text with ai avatars.">
+                <div class="tool-header">
+                    <div class="tool-name">Elai.io</div>
+                    <div class="tool-cat cat-creative">AI Video</div>
+                </div>
+                <p class="tool-desc">
+                    Generate learning and development videos from text with AI avatars.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free trial available</span>
+                </div>
+                <a href="https://elai.io" target="_blank" class="tool-link">Access Elai.io</a>
+            </div>
+
+            <div class="tool-card" data-search="deepbrain ai ai avatars real-time ai video generators featuring highly realistic human avatars.">
+                <div class="tool-header">
+                    <div class="tool-name">DeepBrain AI</div>
+                    <div class="tool-cat cat-creative">AI Avatars</div>
+                </div>
+                <p class="tool-desc">
+                    Real-time AI video generators featuring highly realistic human avatars.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free trial available</span>
+                </div>
+                <a href="https://deepbrain.io" target="_blank" class="tool-link">Access DeepBrain AI</a>
+            </div>
+
+            <div class="tool-card" data-search="wondershare virbo video creator ai avatar video creator for marketing and social media.">
+                <div class="tool-header">
+                    <div class="tool-name">Wondershare Virbo</div>
+                    <div class="tool-cat cat-creative">Video Creator</div>
+                </div>
+                <p class="tool-desc">
+                    AI avatar video creator for marketing and social media.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://virbo.wondershare.com" target="_blank" class="tool-link">Access Wondershare Virbo</a>
+            </div>
+
+            <div class="tool-card" data-search="d-id animation ai animate still photos and create talking avatars with ai technology.">
+                <div class="tool-header">
+                    <div class="tool-name">D-ID</div>
+                    <div class="tool-cat cat-creative">Animation AI</div>
+                </div>
+                <p class="tool-desc">
+                    Animate still photos and create talking avatars with AI technology.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free trial available</span>
+                </div>
+                <a href="https://d-id.com" target="_blank" class="tool-link">Access D-ID</a>
+            </div>
+
+            <div class="tool-card" data-search="suno v5 music gen full song generation including lyrics, vocals, and arrangements.">
+                <div class="tool-header">
+                    <div class="tool-name">Suno v5</div>
+                    <div class="tool-cat cat-creative">Music Gen</div>
+                </div>
+                <p class="tool-desc">
+                    Full song generation including lyrics, vocals, and arrangements.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">50 Credits / Day</span>
+                </div>
+                <a href="https://suno.com" target="_blank" class="tool-link">Access Suno v5</a>
+            </div>
+
+            <div class="tool-card" data-search="udio music gen high-fidelity music creation with studio-grade arrangements and vocals.">
+                <div class="tool-header">
+                    <div class="tool-name">Udio</div>
+                    <div class="tool-cat cat-creative">Music Gen</div>
+                </div>
+                <p class="tool-desc">
+                    High-fidelity music creation with studio-grade arrangements and vocals.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Subscription</span>
+                </div>
+                <a href="https://udio.com" target="_blank" class="tool-link">Access Udio</a>
+            </div>
+
+            <div class="tool-card" data-search="elevenlabs speech gen world leader in realistic text-to-speech and voice cloning technology.">
+                <div class="tool-header">
+                    <div class="tool-name">ElevenLabs</div>
+                    <div class="tool-cat cat-creative">Speech Gen</div>
+                </div>
+                <p class="tool-desc">
+                    World leader in realistic text-to-speech and voice cloning technology.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free 10k Chars / Mo</span>
+                </div>
+                <a href="https://elevenlabs.io" target="_blank" class="tool-link">Access ElevenLabs</a>
+            </div>
+
+            <div class="tool-card" data-search="whisper v3 audio/stt industry-standard open-weights speech recognition and translation.">
+                <div class="tool-header">
+                    <div class="tool-name">Whisper V3</div>
+                    <div class="tool-cat cat-data">Audio/STT</div>
+                </div>
+                <p class="tool-desc">
+                    Industry-standard open-weights speech recognition and translation.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Open Source / API</span>
+                </div>
+                <a href="https://openai.com/research/whisper" target="_blank" class="tool-link">Access Whisper V3</a>
+            </div>
+
+            <div class="tool-card" data-search="stable audio 2.0 music/sfx generate long musical tracks and sound effects from text descriptions.">
+                <div class="tool-header">
+                    <div class="tool-name">Stable Audio 2.0</div>
+                    <div class="tool-cat cat-creative">Music/SFX</div>
+                </div>
+                <p class="tool-desc">
+                    Generate long musical tracks and sound effects from text descriptions.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier / Sub</span>
+                </div>
+                <a href="https://stableaudio.com" target="_blank" class="tool-link">Access Stable Audio 2.0</a>
+            </div>
+
+            <div class="tool-card" data-search="voice.ai voice changer real-time ai voice changer with a library of thousands of voices.">
+                <div class="tool-header">
+                    <div class="tool-name">Voice.ai</div>
+                    <div class="tool-cat cat-creative">Voice Changer</div>
+                </div>
+                <p class="tool-desc">
+                    Real-time AI voice changer with a library of thousands of voices.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free to use</span>
+                </div>
+                <a href="https://voice.ai" target="_blank" class="tool-link">Access Voice.ai</a>
+            </div>
+
+            <div class="tool-card" data-search="rask ai localization one-click video dubbing and translation for global content.">
+                <div class="tool-header">
+                    <div class="tool-name">Rask AI</div>
+                    <div class="tool-cat cat-creative">Localization</div>
+                </div>
+                <p class="tool-desc">
+                    One-click video dubbing and translation for global content.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free trial available</span>
+                </div>
+                <a href="https://rask.ai" target="_blank" class="tool-link">Access Rask AI</a>
+            </div>
+
+            <div class="tool-card" data-search="aiva music comp ai music composer specialized in cinematic soundtracks and scores.">
+                <div class="tool-header">
+                    <div class="tool-name">AIVA</div>
+                    <div class="tool-cat cat-creative">Music Comp</div>
+                </div>
+                <p class="tool-desc">
+                    AI music composer specialized in cinematic soundtracks and scores.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free for personal use</span>
+                </div>
+                <a href="https://aiva.ai" target="_blank" class="tool-link">Access AIVA</a>
+            </div>
+
+            <div class="tool-card" data-search="spleeter audio separator professional tool to separate music into vocals, drums, and instruments.">
+                <div class="tool-header">
+                    <div class="tool-name">Spleeter</div>
+                    <div class="tool-cat cat-data">Audio Separator</div>
+                </div>
+                <p class="tool-desc">
+                    Professional tool to separate music into vocals, drums, and instruments.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Open Source</span>
+                </div>
+                <a href="https://github.com/deezer/spleeter" target="_blank" class="tool-link">Access Spleeter</a>
+            </div>
+
+            <div class="tool-card" data-search="hume ai empathic voice empathic ai voice interface that understands and reacts to human emotion.">
+                <div class="tool-header">
+                    <div class="tool-name">Hume AI</div>
+                    <div class="tool-cat cat-creative">Empathic Voice</div>
+                </div>
+                <p class="tool-desc">
+                    Empathic AI voice interface that understands and reacts to human emotion.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free demo / API</span>
+                </div>
+                <a href="https://hume.ai" target="_blank" class="tool-link">Access Hume AI</a>
+            </div>
+
+            <div class="tool-card" data-search="soundraw music creation ai music generator that lets you customize songs to fit your project.">
+                <div class="tool-header">
+                    <div class="tool-name">Soundraw</div>
+                    <div class="tool-cat cat-creative">Music Creation</div>
+                </div>
+                <p class="tool-desc">
+                    AI music generator that lets you customize songs to fit your project.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free to generate</span>
+                </div>
+                <a href="https://soundraw.io" target="_blank" class="tool-link">Access Soundraw</a>
+            </div>
+
+            <div class="tool-card" data-search="boomy music maker create and publish ai songs to streaming services in seconds.">
+                <div class="tool-header">
+                    <div class="tool-name">Boomy</div>
+                    <div class="tool-cat cat-creative">Music Maker</div>
+                </div>
+                <p class="tool-desc">
+                    Create and publish AI songs to streaming services in seconds.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://boomy.com" target="_blank" class="tool-link">Access Boomy</a>
+            </div>
+
+            <div class="tool-card" data-search="voicemod real-time voice real-time voice changer and soundboard for gamers and streamers.">
+                <div class="tool-header">
+                    <div class="tool-name">Voicemod</div>
+                    <div class="tool-cat cat-creative">Real-time Voice</div>
+                </div>
+                <p class="tool-desc">
+                    Real-time voice changer and soundboard for gamers and streamers.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://voicemod.net" target="_blank" class="tool-link">Access Voicemod</a>
+            </div>
+
+            <div class="tool-card" data-search="resemble ai voice synthesis generate synthetic voices with high customizability and api access.">
+                <div class="tool-header">
+                    <div class="tool-name">Resemble AI</div>
+                    <div class="tool-cat cat-creative">Voice Synthesis</div>
+                </div>
+                <p class="tool-desc">
+                    Generate synthetic voices with high customizability and API access.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Usage based</span>
+                </div>
+                <a href="https://resemble.ai" target="_blank" class="tool-link">Access Resemble AI</a>
+            </div>
+
+            <div class="tool-card" data-search="murf.ai voiceover ai studio-quality ai voiceovers for e-learning, ads, and presentations.">
+                <div class="tool-header">
+                    <div class="tool-name">Murf.ai</div>
+                    <div class="tool-cat cat-creative">Voiceover AI</div>
+                </div>
+                <p class="tool-desc">
+                    Studio-quality AI voiceovers for e-learning, ads, and presentations.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free trial available</span>
+                </div>
+                <a href="https://murf.ai" target="_blank" class="tool-link">Access Murf.ai</a>
+            </div>
+
+            <div class="tool-card" data-search="mubert generative streams ai-powered real-time music for videos and live streams.">
+                <div class="tool-header">
+                    <div class="tool-name">Mubert</div>
+                    <div class="tool-cat cat-creative">Generative Streams</div>
+                </div>
+                <p class="tool-desc">
+                    AI-powered real-time music for videos and live streams.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://mubert.com" target="_blank" class="tool-link">Access Mubert</a>
+            </div>
+
+            <div class="tool-card" data-search="speechify tts reader reads documents, articles, and pdfs aloud with natural ai voices.">
+                <div class="tool-header">
+                    <div class="tool-name">Speechify</div>
+                    <div class="tool-cat cat-creative">TTS Reader</div>
+                </div>
+                <p class="tool-desc">
+                    Reads documents, articles, and PDFs aloud with natural AI voices.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://speechify.com" target="_blank" class="tool-link">Access Speechify</a>
+            </div>
+
+            <div class="tool-card" data-search="listnr audio platform ai voice platform for creating podcasts and audio content at scale.">
+                <div class="tool-header">
+                    <div class="tool-name">Listnr</div>
+                    <div class="tool-cat cat-creative">Audio Platform</div>
+                </div>
+                <p class="tool-desc">
+                    AI voice platform for creating podcasts and audio content at scale.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://listnr.tech" target="_blank" class="tool-link">Access Listnr</a>
+            </div>
+
+            <div class="tool-card" data-search="landr ai music mastering ai-powered music mastering, distribution, and plugins for musicians.">
+                <div class="tool-header">
+                    <div class="tool-name">Landr AI</div>
+                    <div class="tool-cat cat-data">Music Mastering</div>
+                </div>
+                <p class="tool-desc">
+                    AI-powered music mastering, distribution, and plugins for musicians.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free to try</span>
+                </div>
+                <a href="https://landr.com" target="_blank" class="tool-link">Access Landr AI</a>
+            </div>
+
+            <div class="tool-card" data-search="adobe enhance audio cleaning web tool that makes poor quality recordings sound like professional studio audio.">
+                <div class="tool-header">
+                    <div class="tool-name">Adobe Enhance</div>
+                    <div class="tool-cat cat-data">Audio Cleaning</div>
+                </div>
+                <p class="tool-desc">
+                    Web tool that makes poor quality recordings sound like professional studio audio.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free Access</span>
+                </div>
+                <a href="https://podcast.adobe.com/enhance" target="_blank" class="tool-link">Access Adobe Enhance</a>
+            </div>
+
+            <div class="tool-card" data-search="perplexity pro ai search ai-native search engine providing direct answers with full citations.">
+                <div class="tool-header">
+                    <div class="tool-name">Perplexity Pro</div>
+                    <div class="tool-cat cat-research">AI Search</div>
+                </div>
+                <p class="tool-desc">
+                    AI-native search engine providing direct answers with full citations.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Pro $20/mo</span>
+                </div>
+                <a href="https://perplexity.ai" target="_blank" class="tool-link">Access Perplexity Pro</a>
+            </div>
+
+            <div class="tool-card" data-search="genspark agentic search search engine that autonomously builds web pages for your query.">
+                <div class="tool-header">
+                    <div class="tool-name">Genspark</div>
+                    <div class="tool-cat cat-research">Agentic Search</div>
+                </div>
+                <p class="tool-desc">
+                    Search engine that autonomously builds web pages for your query.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://genspark.ai" target="_blank" class="tool-link">Access Genspark</a>
+            </div>
+
+            <div class="tool-card" data-search="phind dev search search engine optimized for developers with code-first answers.">
+                <div class="tool-header">
+                    <div class="tool-name">Phind</div>
+                    <div class="tool-cat cat-research">Dev Search</div>
+                </div>
+                <p class="tool-desc">
+                    Search engine optimized for developers with code-first answers.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier / Pro</span>
+                </div>
+                <a href="https://phind.com" target="_blank" class="tool-link">Access Phind</a>
+            </div>
+
+            <div class="tool-card" data-search="consensus science search search engine that answers questions using peer-reviewed papers.">
+                <div class="tool-header">
+                    <div class="tool-name">Consensus</div>
+                    <div class="tool-cat cat-research">Science Search</div>
+                </div>
+                <p class="tool-desc">
+                    Search engine that answers questions using peer-reviewed papers.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free search</span>
+                </div>
+                <a href="https://consensus.app" target="_blank" class="tool-link">Access Consensus</a>
+            </div>
+
+            <div class="tool-card" data-search="elicit research assistant automates literature reviews and data extraction for researchers.">
+                <div class="tool-header">
+                    <div class="tool-name">Elicit</div>
+                    <div class="tool-cat cat-research">Research Assistant</div>
+                </div>
+                <p class="tool-desc">
+                    Automates literature reviews and data extraction for researchers.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free trial available</span>
+                </div>
+                <a href="https://elicit.com" target="_blank" class="tool-link">Access Elicit</a>
+            </div>
+
+            <div class="tool-card" data-search="scholarcy paper summary reads and summarizes long research papers into flashcards.">
+                <div class="tool-header">
+                    <div class="tool-name">Scholarcy</div>
+                    <div class="tool-cat cat-research">Paper Summary</div>
+                </div>
+                <p class="tool-desc">
+                    Reads and summarizes long research papers into flashcards.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free extension</span>
+                </div>
+                <a href="https://scholarcy.com" target="_blank" class="tool-link">Access Scholarcy</a>
+            </div>
+
+            <div class="tool-card" data-search="exa ai neural search the search engine for ai agents to find high-quality information.">
+                <div class="tool-header">
+                    <div class="tool-name">Exa AI</div>
+                    <div class="tool-cat cat-research">Neural Search</div>
+                </div>
+                <p class="tool-desc">
+                    The search engine for AI agents to find high-quality information.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free API tier</span>
+                </div>
+                <a href="https://exa.ai" target="_blank" class="tool-link">Access Exa AI</a>
+            </div>
+
+            <div class="tool-card" data-search="tavily search api search engine optimized specifically for autonomous agents.">
+                <div class="tool-header">
+                    <div class="tool-name">Tavily</div>
+                    <div class="tool-cat cat-research">Search API</div>
+                </div>
+                <p class="tool-desc">
+                    Search engine optimized specifically for autonomous agents.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free API tier</span>
+                </div>
+                <a href="https://tavily.com" target="_blank" class="tool-link">Access Tavily</a>
+            </div>
+
+            <div class="tool-card" data-search="you.com ai search private and customizable ai search engine with integrated tools.">
+                <div class="tool-header">
+                    <div class="tool-name">You.com</div>
+                    <div class="tool-cat cat-research">AI Search</div>
+                </div>
+                <p class="tool-desc">
+                    Private and customizable AI search engine with integrated tools.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://you.com" target="_blank" class="tool-link">Access You.com</a>
+            </div>
+
+            <div class="tool-card" data-search="scite.ai smart citations verify research papers by seeing how they have been cited.">
+                <div class="tool-header">
+                    <div class="tool-name">Scite.ai</div>
+                    <div class="tool-cat cat-research">Smart Citations</div>
+                </div>
+                <p class="tool-desc">
+                    Verify research papers by seeing how they have been cited.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free trial available</span>
+                </div>
+                <a href="https://scite.ai" target="_blank" class="tool-link">Access Scite.ai</a>
+            </div>
+
+            <div class="tool-card" data-search="kaitiaki research agent autonomous agent for environmental and conservation research.">
+                <div class="tool-header">
+                    <div class="tool-name">Kaitiaki</div>
+                    <div class="tool-cat cat-research">Research Agent</div>
+                </div>
+                <p class="tool-desc">
+                    Autonomous agent for environmental and conservation research.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Open Access</span>
+                </div>
+                <a href="https://kaitiaki.ai" target="_blank" class="tool-link">Access Kaitiaki</a>
+            </div>
+
+            <div class="tool-card" data-search="wolframalpha computational the definitive source for computational knowledge and math.">
+                <div class="tool-header">
+                    <div class="tool-name">WolframAlpha</div>
+                    <div class="tool-cat cat-data">Computational</div>
+                </div>
+                <p class="tool-desc">
+                    The definitive source for computational knowledge and math.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free / Pro</span>
+                </div>
+                <a href="https://wolframalpha.com" target="_blank" class="tool-link">Access WolframAlpha</a>
+            </div>
+
+            <div class="tool-card" data-search="semantic scholar academic search ai-powered search for finding and citing scientific literature.">
+                <div class="tool-header">
+                    <div class="tool-name">Semantic Scholar</div>
+                    <div class="tool-cat cat-research">Academic Search</div>
+                </div>
+                <p class="tool-desc">
+                    AI-powered search for finding and citing scientific literature.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free to use</span>
+                </div>
+                <a href="https://semanticscholar.org" target="_blank" class="tool-link">Access Semantic Scholar</a>
+            </div>
+
+            <div class="tool-card" data-search="researchrabbit literature mapping visual discovery tool for mapping out scientific citations and networks.">
+                <div class="tool-header">
+                    <div class="tool-name">ResearchRabbit</div>
+                    <div class="tool-cat cat-research">Literature Mapping</div>
+                </div>
+                <p class="tool-desc">
+                    Visual discovery tool for mapping out scientific citations and networks.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free to use</span>
+                </div>
+                <a href="https://researchrabbitapp.com" target="_blank" class="tool-link">Access ResearchRabbit</a>
+            </div>
+
+            <div class="tool-card" data-search="iris.ai scientific agent autonomous researcher for corporate r&d and scientific discovery.">
+                <div class="tool-header">
+                    <div class="tool-name">Iris.ai</div>
+                    <div class="tool-cat cat-research">Scientific Agent</div>
+                </div>
+                <p class="tool-desc">
+                    Autonomous researcher for corporate R&D and scientific discovery.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Professional access</span>
+                </div>
+                <a href="https://iris.ai" target="_blank" class="tool-link">Access Iris.ai</a>
+            </div>
+
+            <div class="tool-card" data-search="connected papers research mapping visualize connections between research papers in a specific field.">
+                <div class="tool-header">
+                    <div class="tool-name">Connected Papers</div>
+                    <div class="tool-cat cat-research">Research Mapping</div>
+                </div>
+                <p class="tool-desc">
+                    Visualize connections between research papers in a specific field.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free tier available</span>
+                </div>
+                <a href="https://connectedpapers.com" target="_blank" class="tool-link">Access Connected Papers</a>
+            </div>
+
+            <div class="tool-card" data-search="openalex open research open index of the world's scholarly research system.">
+                <div class="tool-header">
+                    <div class="tool-name">OpenAlex</div>
+                    <div class="tool-cat cat-research">Open Research</div>
+                </div>
+                <p class="tool-desc">
+                    Open index of the world's scholarly research system.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free API</span>
+                </div>
+                <a href="https://openalex.org" target="_blank" class="tool-link">Access OpenAlex</a>
+            </div>
+
+            <div class="tool-card" data-search="base search academic index one of the world's most voluminous search engines for academic resources.">
+                <div class="tool-header">
+                    <div class="tool-name">Base Search</div>
+                    <div class="tool-cat cat-research">Academic Index</div>
+                </div>
+                <p class="tool-desc">
+                    One of the world's most voluminous search engines for academic resources.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free to use</span>
+                </div>
+                <a href="https://base-search.net" target="_blank" class="tool-link">Access Base Search</a>
+            </div>
+
+            <div class="tool-card" data-search="dimensions ai research data platform that connects research across grants, patents, and papers.">
+                <div class="tool-header">
+                    <div class="tool-name">Dimensions AI</div>
+                    <div class="tool-cat cat-data">Research Data</div>
+                </div>
+                <p class="tool-desc">
+                    Platform that connects research across grants, patents, and papers.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Free personal use</span>
+                </div>
+                <a href="https://dimensions.ai" target="_blank" class="tool-link">Access Dimensions AI</a>
+            </div>
+
+            <div class="tool-card" data-search="deepknowledge library agent agentic interface for massive academic and institutional libraries.">
+                <div class="tool-header">
+                    <div class="tool-name">DeepKnowledge</div>
+                    <div class="tool-cat cat-research">Library Agent</div>
+                </div>
+                <p class="tool-desc">
+                    Agentic interface for massive academic and institutional libraries.
+                </p>
+                <div class="limit-box">
+                    <span class="limit-label">Status / Limits</span>
+                    <span class="limit-val">Sub based</span>
+                </div>
+                <a href="https://deepknowledge.ai" target="_blank" class="tool-link">Access DeepKnowledge</a>
+            </div>
+            <div id="noResults">// NO MATCHING AGENTS FOUND IN DATASTREAM</div>
         </div>
     </div>
+
+    <script>
+        const searchInput = document.getElementById('toolSearch');
+        const toolCards = document.querySelectorAll('.tool-card');
+        const noResults = document.getElementById('noResults');
+
+        searchInput.addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            toolCards.forEach(card => {
+                const searchData = card.getAttribute('data-search');
+                if (searchData.includes(query)) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
