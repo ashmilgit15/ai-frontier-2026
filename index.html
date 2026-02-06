@@ -325,59 +325,6 @@
             .step-box { grid-template-columns: 1fr; gap: 10px; }
         }
 
-    
-        /* --- Interactive UX Enhancements (lightweight) --- */
-        .glass-hover {
-            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-            will-change: transform;
-        }
-        .glass-hover:hover {
-            transform: translateY(-6px) scale(1.01);
-            box-shadow: 0 10px 30px rgba(0,242,255,0.08);
-            border-color: rgba(0,242,255,0.3);
-        }
-        .glow-pulse {
-            position: relative;
-        }
-        .glow-pulse::after {
-            content: '';
-            position: absolute;
-            inset: -6px;
-            border-radius: inherit;
-            background: radial-gradient(60% 60% at 50% 50%, rgba(0,242,255,0.18), transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-        }
-        .glow-pulse:hover::after { opacity: 1; }
-
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            will-change: transform, opacity;
-        }
-        .reveal.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .floaty {
-            animation: floaty 6s ease-in-out infinite;
-        }
-        @keyframes floaty {
-            0%,100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
-        }
-
-        .parallax {
-            transform: translateZ(0);
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            * { animation: none !important; transition: none !important; }
-        }
-
     </style>
 </head>
 <body>
@@ -1362,46 +1309,6 @@
             observer.observe(el);
         });
     </script>
-
-
-<script>
-(function(){
-  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // Reveal on scroll
-  const revealEls = document.querySelectorAll('.reveal');
-  if (!prefersReduced && 'IntersectionObserver' in window) {
-    const io = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('show'); io.unobserve(e.target);} });
-    }, { threshold: 0.15 });
-    revealEls.forEach(el=>io.observe(el));
-  } else {
-    revealEls.forEach(el=>el.classList.add('show'));
-  }
-
-  // Subtle parallax on hero only (low-cost)
-  const hero = document.querySelector('header');
-  if (!prefersReduced && hero) {
-    let raf = null;
-    hero.addEventListener('mousemove', (e)=>{
-      if (raf) return;
-      raf = requestAnimationFrame(()=>{
-        const rect = hero.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-        hero.style.transform = `translate3d(${x*6}px, ${y*6}px, 0)`;
-        raf = null;
-      });
-    });
-    hero.addEventListener('mouseleave', ()=>{ hero.style.transform = 'translate3d(0,0,0)'; });
-  }
-
-  // Add hover/interactive classes to cards
-  document.querySelectorAll('.radar-card, .blog-post, .tool-card').forEach(el=>{
-    el.classList.add('glass-hover','glow-pulse','reveal');
-  });
-})();
-</script>
 
 </body>
 </html>
